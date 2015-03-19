@@ -259,8 +259,11 @@ NSTimer *timer;
     self.lb_name.alpha = 0;
     [self.headerView addSubview:descTextName];
     
+    //condition
+    self.lb_condition.frame = CGRectMake(self.lb_condition.frame.origin.x, self.lb_condition.frame.origin.y+self.lb_name.frame.size.height-20, self.lb_condition.frame.size.width, self.lb_condition.frame.size.height);
+    
     //detail
-    self.lb_detail.frame = CGRectMake(self.lb_detail.frame.origin.x, self.lb_detail.frame.origin.y+self.lb_name.frame.size.height-20, self.lb_detail.frame.size.width, self.lb_detail.frame.size.height);
+    self.lb_detail.frame = CGRectMake(self.lb_detail.frame.origin.x, self.lb_detail.frame.origin.y+self.lb_condition.frame.size.height-20, self.lb_detail.frame.size.width, self.lb_detail.frame.size.height);
     
     self.lb_detail.text = [response objectForKey:@"detail"];
     
@@ -272,33 +275,13 @@ NSTimer *timer;
     int lines = self.lb_detail.frame.size.height/15;
     self.lb_detail.numberOfLines = lines;
     
-    UILabel *descText = [[UILabel alloc] initWithFrame:frame];
-    descText.textColor = RGB(102, 102, 102);
-    descText.text = self.lb_detail.text;
-    descText.numberOfLines = lines;
-    [descText setFont:[UIFont systemFontOfSize:15]];
+    UILabel *descTexDetail = [[UILabel alloc] initWithFrame:frame];
+    descTexDetail.textColor = RGB(102, 102, 102);
+    descTexDetail.text = self.lb_detail.text;
+    descTexDetail.numberOfLines = lines;
+    [descTexDetail setFont:[UIFont systemFontOfSize:15]];
     self.lb_detail.alpha = 0;
-    [self.headerView addSubview:descText];
-    
-    //condition
-    self.lb_condition.frame = CGRectMake(self.lb_condition.frame.origin.x, self.lb_condition.frame.origin.y+self.lb_detail.frame.size.height-10, self.lb_condition.frame.size.width, self.lb_condition.frame.size.height);
-    
-    self.lb_condition.text = [response objectForKey:@"condition"];
-    CGRect frame1 = self.lb_condition.frame;
-    frame1.size = [self.lb_condition sizeOfMultiLineLabel];
-    [self.lb_condition sizeOfMultiLineLabel];
-    
-    [self.lb_condition setFrame:frame1];
-    int lines1 = self.lb_condition.frame.size.height/15;
-    self.lb_condition.numberOfLines = lines1;
-    
-    UILabel *descText1 = [[UILabel alloc] initWithFrame:frame1];
-    descText1.textColor = RGB(102, 102, 102);
-    descText1.text = self.lb_condition.text;
-    descText1.numberOfLines = lines1;
-    [descText1 setFont:[UIFont systemFontOfSize:15]];
-    self.lb_condition.alpha = 0;
-    [self.headerView addSubview:descText1];
+    [self.headerView addSubview:descTexDetail];
     
     self.headerView.frame = CGRectMake(self.headerView.frame.origin.x, self.headerView.frame.origin.y, self.headerView.frame.size.width, self.headerView.frame.size.height+self.lb_detail.frame.size.height+self.lb_condition.frame.size.height-20);
     
@@ -352,8 +335,11 @@ NSTimer *timer;
     self.lb_name.alpha = 0;
     [self.headerView addSubview:descTextName];
     
+    //condition
+    self.lb_condition.frame = CGRectMake(self.lb_condition.frame.origin.x, self.lb_condition.frame.origin.y+self.lb_name.frame.size.height-20, self.lb_condition.frame.size.width, self.lb_condition.frame.size.height);
+    
     //detail
-    self.lb_detail.frame = CGRectMake(self.lb_detail.frame.origin.x, self.lb_detail.frame.origin.y+self.lb_name.frame.size.height-20, self.lb_detail.frame.size.width, self.lb_detail.frame.size.height);
+    self.lb_detail.frame = CGRectMake(self.lb_detail.frame.origin.x, self.lb_detail.frame.origin.y+self.lb_condition.frame.size.height-20, self.lb_detail.frame.size.width, self.lb_detail.frame.size.height);
     
     self.lb_detail.text = [[self.promotionDetailOffline objectForKey:@"promotionDetailArray"] objectForKey:@"detail"];
     
@@ -372,26 +358,6 @@ NSTimer *timer;
     [descText setFont:[UIFont systemFontOfSize:15]];
     self.lb_detail.alpha = 0;
     [self.headerView addSubview:descText];
-    
-    //condition
-    self.lb_condition.frame = CGRectMake(self.lb_condition.frame.origin.x, self.lb_condition.frame.origin.y+self.lb_detail.frame.size.height-10, self.lb_condition.frame.size.width, self.lb_condition.frame.size.height);
-    
-    self.lb_condition.text = [[self.promotionDetailOffline objectForKey:@"promotionDetailArray"] objectForKey:@"condition"];
-    CGRect frame1 = self.lb_condition.frame;
-    frame1.size = [self.lb_condition sizeOfMultiLineLabel];
-    [self.lb_condition sizeOfMultiLineLabel];
-    
-    [self.lb_condition setFrame:frame1];
-    int lines1 = self.lb_condition.frame.size.height/15;
-    self.lb_condition.numberOfLines = lines1;
-    
-    UILabel *descText1 = [[UILabel alloc] initWithFrame:frame1];
-    descText1.textColor = RGB(102, 102, 102);
-    descText1.text = self.lb_condition.text;
-    descText1.numberOfLines = lines1;
-    [descText1 setFont:[UIFont systemFontOfSize:15]];
-    self.lb_condition.alpha = 0;
-    [self.headerView addSubview:descText1];
     
     self.headerView.frame = CGRectMake(self.headerView.frame.origin.x, self.headerView.frame.origin.y, self.headerView.frame.size.width, self.headerView.frame.size.height+self.lb_detail.frame.size.height+self.lb_condition.frame.size.height-20);
     

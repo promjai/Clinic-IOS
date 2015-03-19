@@ -12,8 +12,8 @@
                 <outlet property="headerView" destination="wUz-qK-mA9" id="XwG-8n-eC5"/>
                 <outlet property="img_thumbnails" destination="xE8-Z6-CU7" id="uaz-5l-3ea"/>
                 <outlet property="lb_code" destination="TKS-o6-OGK" id="OCl-4S-W2q"/>
-                <outlet property="lb_condition" destination="sSb-g5-qwM" id="SnW-ut-mIb"/>
-                <outlet property="lb_detail" destination="leE-ml-hcp" id="qxq-V6-FEp"/>
+                <outlet property="lb_condition" destination="leE-ml-hcp" id="bFq-lD-IZm"/>
+                <outlet property="lb_detail" destination="sSb-g5-qwM" id="05n-Vp-a7w"/>
                 <outlet property="lb_name" destination="ZId-ys-WRz" id="9Uw-h9-B7M"/>
                 <outlet property="lb_time" destination="y9V-5a-LRE" id="0sm-iJ-VzM"/>
                 <outlet property="redeemView" destination="Aaz-gi-Pvd" id="GlC-5e-GbU"/>
@@ -65,10 +65,10 @@
                     <color key="textColor" red="0.81176470590000005" green="0.0" blue="0.058823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="leE-ml-hcp" customClass="UILabel_UILabelDynamicHeight">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="รายละเอียด และข้อกำหนด" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="leE-ml-hcp">
                     <rect key="frame" x="20" y="270" width="280" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSb-g5-qwM" customClass="UILabel_UILabelDynamicHeight">

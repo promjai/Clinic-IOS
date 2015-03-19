@@ -129,6 +129,8 @@ NSTimer *timmer;
     
 }
 
+/* Refresh TableView */
+
 - (void)refresh:(UIRefreshControl *)refreshControl {
     
     if ([self.checksegmented isEqualToString:@"0"]) {
@@ -406,6 +408,16 @@ NSTimer *timmer;
         
         if ([[[self.arrObjService objectAtIndex:indexPath.row] objectForKey:@"type"] isEqualToString:@"folder"]) {
         
+            PFFolder1ViewController *foldertype = [[PFFolder1ViewController alloc] init];
+            if(IS_WIDESCREEN) {
+                foldertype = [[PFFolder1ViewController alloc] initWithNibName:@"PFFolder1ViewController_Wide" bundle:nil];
+            } else {
+                foldertype = [[PFFolder1ViewController alloc] initWithNibName:@"PFFolder1ViewController" bundle:nil];
+            }
+            foldertype.delegate = self;
+            foldertype.obj = [self.arrObjService objectAtIndex:indexPath.row];
+            foldertype.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:foldertype animated:YES];
         
         } else {
         
@@ -438,12 +450,44 @@ NSTimer *timmer;
     }
 }
 
+#pragma mark -
+#pragma mark UIScrollViewDelegate Methods
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    float offset = (scrollView.contentOffset.y - (scrollView.contentSize.height - scrollView.frame.size.height));
+    if (offset >= 0 && offset <= 5) {
+        if (!noDataService) {
+            refreshDataService = NO;
+            
+            if ([self.checksegmented isEqualToString:@"0"]) {
+                
+                if ([self.checkinternet isEqualToString:@"connect"]) {
+                    [self.Api getService:@"NO" link:self.paging];
+                }
+                
+            } else {
+                
+                if ([self.checkinternet isEqualToString:@"connect"]) {
+                    [self.Api getPromotion:@"NO" link:self.paging];
+                }
+                
+            }
+            
+        }
+    }
+}
+
+/* Full Image Gallery */
+
+- (void)PFGalleryViewController:(id)sender sum:(NSMutableArray *)sum current:(NSString *)current{
+    [self.delegate PFGalleryViewController:self sum:sum current:current];
+}
+
 /* Full Image */
 
 - (void)PFImageViewController:(id)sender viewPicture:(UIImage *)image {
-    
     [self.delegate PFImageViewController:self viewPicture:image];
-    
 }
 
 @end

@@ -278,6 +278,30 @@
     
 }
 
+- (void)getServiceByURL:(NSString *)url {
+
+    self.urlStr = [[NSString alloc] initWithFormat:@"%@",url];
+    
+    [self.manager GET:self.urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self.delegate PFApi:self getServiceResponse:responseObject];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.delegate PFApi:self getServiceErrorResponse:[error localizedDescription]];
+    }];
+    
+}
+
+- (void)getServiceByID:(NSString *)service_id {
+
+    self.urlStr = [[NSString alloc] initWithFormat:@"%@service/%@/picture",API_URL,service_id];
+    
+    [self.manager GET:self.urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self.delegate PFApi:self getServiceResponse:responseObject];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.delegate PFApi:self getServiceErrorResponse:[error localizedDescription]];
+    }];
+
+}
+
 - (void)getPromotion:(NSString *)limit link:(NSString *)link {
     
     if ([link isEqualToString:@"NO"] ) {
@@ -306,9 +330,9 @@
 
 }
 
-- (void)getPromotionByID:(NSString *)coupon_id {
+- (void)getPromotionByID:(NSString *)promotion_id {
 
-    self.urlStr = [[NSString alloc] initWithFormat:@"%@coupon/%@",API_URL,coupon_id];
+    self.urlStr = [[NSString alloc] initWithFormat:@"%@coupon/%@",API_URL,promotion_id];
     
     NSDictionary *parameters;
     
@@ -330,9 +354,9 @@
     
 }
 
-- (void)getPromotionRequest:(NSString *)coupon_id {
+- (void)getPromotionRequest:(NSString *)promotion_id {
     
-    self.urlStr = [[NSString alloc] initWithFormat:@"%@coupon/request/%@",API_URL,coupon_id];
+    self.urlStr = [[NSString alloc] initWithFormat:@"%@coupon/request/%@",API_URL,promotion_id];
     
     NSDictionary *parameters = @{@"access_token":[self getAccessToken]};
     

@@ -90,8 +90,8 @@ BOOL refreshDataTimes;
     [self.bg_nologinView.layer setMasksToBounds:YES];
     [self.bg_nologinView.layer setCornerRadius:5.0f];
     
-    [self.bg_headerView.layer setMasksToBounds:YES];
-    [self.bg_headerView.layer setCornerRadius:5.0f];
+    [self.bt_edit.layer setMasksToBounds:YES];
+    [self.bt_edit.layer setCornerRadius:5.0f];
     
     [self.bt_register.layer setMasksToBounds:YES];
     [self.bt_register.layer setCornerRadius:5.0f];

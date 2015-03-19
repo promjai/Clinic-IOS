@@ -13,11 +13,13 @@
 
 #import "PFServiceCell.h"
 #import "PFPromotionCell.h"
+#import "PFFolder1ViewController.h"
 #import "PFServiceDetailViewController.h"
 #import "PFPromotionDetailViewController.h"
 
 @protocol PFServiceViewControllerDelegate <NSObject>
 
+- (void)PFGalleryViewController:(id)sender sum:(NSMutableArray *)sum current:(NSString *)current;
 - (void)PFImageViewController:(id)sender viewPicture:(UIImage *)image;
 
 @end

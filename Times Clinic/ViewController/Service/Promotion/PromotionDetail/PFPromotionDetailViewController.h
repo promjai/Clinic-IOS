@@ -41,8 +41,8 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *img_thumbnails;
 @property (strong, nonatomic) IBOutlet UILabel_UILabelDynamicHeight *lb_name;
+@property (strong, nonatomic) IBOutlet UILabel *lb_condition;
 @property (strong, nonatomic) IBOutlet UILabel_UILabelDynamicHeight *lb_detail;
-@property (strong, nonatomic) IBOutlet UILabel_UILabelDynamicHeight *lb_condition;
 
 @property (strong, nonatomic) IBOutlet UIView *redeemView;
 @property (strong, nonatomic) IBOutlet UIButton *bt_redeem;

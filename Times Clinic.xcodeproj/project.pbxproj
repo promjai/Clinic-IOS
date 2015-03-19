@@ -26,13 +26,21 @@
 		81346D311AB14A5E00C2DCF4 /* PFTimesDetailViewController_Wide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81346D2F1AB14A5D00C2DCF4 /* PFTimesDetailViewController_Wide.xib */; };
 		81346D361AB14BAF00C2DCF4 /* PFConsultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81346D341AB14BAF00C2DCF4 /* PFConsultViewController.m */; };
 		81346D371AB14BAF00C2DCF4 /* PFConsultViewController_Wide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81346D351AB14BAF00C2DCF4 /* PFConsultViewController_Wide.xib */; };
+		8138A2961ABA8118005BB73F /* PFFolder1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8138A2941ABA8118005BB73F /* PFFolder1ViewController.m */; };
+		8138A2971ABA8118005BB73F /* PFFolder1ViewController_Wide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8138A2951ABA8118005BB73F /* PFFolder1ViewController_Wide.xib */; };
+		8138A29B1ABA813C005BB73F /* PFFolder2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8138A2991ABA813C005BB73F /* PFFolder2ViewController.m */; };
+		8138A29C1ABA813C005BB73F /* PFFolder2ViewController_Wide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8138A29A1ABA813C005BB73F /* PFFolder2ViewController_Wide.xib */; };
+		8138A2A01ABA81EC005BB73F /* PFFolderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8138A29E1ABA81EC005BB73F /* PFFolderCell.m */; };
+		8138A2A11ABA81EC005BB73F /* PFFolderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8138A29F1ABA81EC005BB73F /* PFFolderCell.xib */; };
+		8138A2A41ABA92E1005BB73F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8138A2A31ABA92E1005BB73F /* FacebookSDK.framework */; };
+		8138A2A81ABAA30E005BB73F /* ScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8138A2A71ABAA30E005BB73F /* ScrollView.m */; };
+		8138A2AC1ABAA349005BB73F /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8138A2AB1ABAA349005BB73F /* AsyncImageView.m */; };
 		817702611AB91C520085D209 /* PFServiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8177025F1AB91C520085D209 /* PFServiceCell.m */; };
 		817702621AB91C520085D209 /* PFServiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 817702601AB91C520085D209 /* PFServiceCell.xib */; };
 		817702671AB91C6D0085D209 /* PFServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 817702651AB91C6D0085D209 /* PFServiceViewController.m */; };
 		817702681AB91C6D0085D209 /* PFServiceViewController_Wide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 817702661AB91C6D0085D209 /* PFServiceViewController_Wide.xib */; };
 		8177026D1AB91C950085D209 /* PFTimesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8177026B1AB91C950085D209 /* PFTimesViewController.m */; };
 		8177026E1AB91C950085D209 /* PFTimesViewController_Wide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8177026C1AB91C950085D209 /* PFTimesViewController_Wide.xib */; };
-		817702701AB9220D0085D209 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8177026F1AB9220D0085D209 /* FacebookSDK.framework */; };
 		817702751AB927E40085D209 /* PFServiceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 817702731AB927E40085D209 /* PFServiceDetailViewController.m */; };
 		817702761AB927E40085D209 /* PFServiceDetailViewController_Wide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 817702741AB927E40085D209 /* PFServiceDetailViewController_Wide.xib */; };
 		8177027B1AB929670085D209 /* PFUpdateDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 817702791AB929670085D209 /* PFUpdateDetailViewController.m */; };
@@ -261,6 +269,20 @@
 		81346D331AB14BAF00C2DCF4 /* PFConsultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFConsultViewController.h; sourceTree = "<group>"; };
 		81346D341AB14BAF00C2DCF4 /* PFConsultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFConsultViewController.m; sourceTree = "<group>"; };
 		81346D351AB14BAF00C2DCF4 /* PFConsultViewController_Wide.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFConsultViewController_Wide.xib; sourceTree = "<group>"; };
+		8138A2931ABA8118005BB73F /* PFFolder1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFFolder1ViewController.h; sourceTree = "<group>"; };
+		8138A2941ABA8118005BB73F /* PFFolder1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFFolder1ViewController.m; sourceTree = "<group>"; };
+		8138A2951ABA8118005BB73F /* PFFolder1ViewController_Wide.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFFolder1ViewController_Wide.xib; sourceTree = "<group>"; };
+		8138A2981ABA813C005BB73F /* PFFolder2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFFolder2ViewController.h; sourceTree = "<group>"; };
+		8138A2991ABA813C005BB73F /* PFFolder2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFFolder2ViewController.m; sourceTree = "<group>"; };
+		8138A29A1ABA813C005BB73F /* PFFolder2ViewController_Wide.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFFolder2ViewController_Wide.xib; sourceTree = "<group>"; };
+		8138A29D1ABA81EC005BB73F /* PFFolderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFFolderCell.h; sourceTree = "<group>"; };
+		8138A29E1ABA81EC005BB73F /* PFFolderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFFolderCell.m; sourceTree = "<group>"; };
+		8138A29F1ABA81EC005BB73F /* PFFolderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFFolderCell.xib; sourceTree = "<group>"; };
+		8138A2A31ABA92E1005BB73F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "Times Clinic/Library/FacebookSDK.framework"; sourceTree = "<group>"; };
+		8138A2A61ABAA30E005BB73F /* ScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollView.h; sourceTree = "<group>"; };
+		8138A2A71ABAA30E005BB73F /* ScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollView.m; sourceTree = "<group>"; };
+		8138A2AA1ABAA348005BB73F /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
+		8138A2AB1ABAA349005BB73F /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		8177025E1AB91C520085D209 /* PFServiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFServiceCell.h; sourceTree = "<group>"; };
 		8177025F1AB91C520085D209 /* PFServiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFServiceCell.m; sourceTree = "<group>"; };
 		817702601AB91C520085D209 /* PFServiceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFServiceCell.xib; sourceTree = "<group>"; };
@@ -270,7 +292,6 @@
 		8177026A1AB91C950085D209 /* PFTimesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFTimesViewController.h; sourceTree = "<group>"; };
 		8177026B1AB91C950085D209 /* PFTimesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFTimesViewController.m; sourceTree = "<group>"; };
 		8177026C1AB91C950085D209 /* PFTimesViewController_Wide.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFTimesViewController_Wide.xib; sourceTree = "<group>"; };
-		8177026F1AB9220D0085D209 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "Times Clinic/Library/FacebookSDK.framework"; sourceTree = "<group>"; };
 		817702721AB927E40085D209 /* PFServiceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFServiceDetailViewController.h; sourceTree = "<group>"; };
 		817702731AB927E40085D209 /* PFServiceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFServiceDetailViewController.m; sourceTree = "<group>"; };
 		817702741AB927E40085D209 /* PFServiceDetailViewController_Wide.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFServiceDetailViewController_Wide.xib; sourceTree = "<group>"; };
@@ -563,7 +584,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81D4A3511AAFEA990046C1FB /* CoreGraphics.framework in Frameworks */,
-				817702701AB9220D0085D209 /* FacebookSDK.framework in Frameworks */,
+				8138A2A41ABA92E1005BB73F /* FacebookSDK.framework in Frameworks */,
 				81B3DF791AB2DB52002B31B7 /* FacebookSDK.framework in Frameworks */,
 				81D4A34F1AAFEA910046C1FB /* UIKit.framework in Frameworks */,
 				81D8842A1AAED9F500316CF0 /* MapKit.framework in Frameworks */,
@@ -619,6 +640,64 @@
 				81346D351AB14BAF00C2DCF4 /* PFConsultViewController_Wide.xib */,
 			);
 			path = Consult;
+			sourceTree = "<group>";
+		};
+		8138A28F1ABA783D005BB73F /* FolderType */ = {
+			isa = PBXGroup;
+			children = (
+				8138A2901ABA7D80005BB73F /* Cell */,
+				8138A2911ABA7D80005BB73F /* Folder1 */,
+				8138A2921ABA7D80005BB73F /* Folder2 */,
+			);
+			path = FolderType;
+			sourceTree = "<group>";
+		};
+		8138A2901ABA7D80005BB73F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8138A29D1ABA81EC005BB73F /* PFFolderCell.h */,
+				8138A29E1ABA81EC005BB73F /* PFFolderCell.m */,
+				8138A29F1ABA81EC005BB73F /* PFFolderCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		8138A2911ABA7D80005BB73F /* Folder1 */ = {
+			isa = PBXGroup;
+			children = (
+				8138A2931ABA8118005BB73F /* PFFolder1ViewController.h */,
+				8138A2941ABA8118005BB73F /* PFFolder1ViewController.m */,
+				8138A2951ABA8118005BB73F /* PFFolder1ViewController_Wide.xib */,
+			);
+			path = Folder1;
+			sourceTree = "<group>";
+		};
+		8138A2921ABA7D80005BB73F /* Folder2 */ = {
+			isa = PBXGroup;
+			children = (
+				8138A2981ABA813C005BB73F /* PFFolder2ViewController.h */,
+				8138A2991ABA813C005BB73F /* PFFolder2ViewController.m */,
+				8138A29A1ABA813C005BB73F /* PFFolder2ViewController_Wide.xib */,
+			);
+			path = Folder2;
+			sourceTree = "<group>";
+		};
+		8138A2A51ABAA30E005BB73F /* ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				8138A2A61ABAA30E005BB73F /* ScrollView.h */,
+				8138A2A71ABAA30E005BB73F /* ScrollView.m */,
+			);
+			path = ScrollView;
+			sourceTree = "<group>";
+		};
+		8138A2A91ABAA348005BB73F /* AsyncImageView */ = {
+			isa = PBXGroup;
+			children = (
+				8138A2AA1ABAA348005BB73F /* AsyncImageView.h */,
+				8138A2AB1ABAA349005BB73F /* AsyncImageView.m */,
+			);
+			path = AsyncImageView;
 			sourceTree = "<group>";
 		};
 		8177025D1AB91B470085D209 /* Cell */ = {
@@ -737,6 +816,7 @@
 			children = (
 				8177025D1AB91B470085D209 /* Cell */,
 				817702631AB91C6D0085D209 /* Service */,
+				8138A28F1ABA783D005BB73F /* FolderType */,
 				817702711AB9270B0085D209 /* ServiceDetail */,
 			);
 			path = Service;
@@ -793,10 +873,12 @@
 			isa = PBXGroup;
 			children = (
 				81D4A37E1AB01F150046C1FB /* AFNetworking */,
+				8138A2A91ABAA348005BB73F /* AsyncImageView */,
 				81881D6A1AAD558B007071DE /* DLIL */,
 				81B3DF781AB2DB52002B31B7 /* FacebookSDK.framework */,
 				81BB14B21AB3F70100225D66 /* MWPhotoBrowser */,
 				81D4A3B11AB038020046C1FB /* Other */,
+				8138A2A51ABAA30E005BB73F /* ScrollView */,
 				81A71D1F1AB7E50E00620FD3 /* UILabel+UILabelDynamicHeight */,
 			);
 			path = Library;
@@ -1204,7 +1286,7 @@
 		81D4A3521AAFEADD0046C1FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8177026F1AB9220D0085D209 /* FacebookSDK.framework */,
+				8138A2A31ABA92E1005BB73F /* FacebookSDK.framework */,
 				81D4A3501AAFEA990046C1FB /* CoreGraphics.framework */,
 				81D884291AAED9F500316CF0 /* MapKit.framework */,
 				81D4A34E1AAFEA910046C1FB /* UIKit.framework */,
@@ -1485,10 +1567,12 @@
 				81D4A3791AB015AF0046C1FB /* PFTimesCell.xib in Resources */,
 				81B3DF501AB2D567002B31B7 /* pin_map@3x.png in Resources */,
 				81B3DF691AB2D87E002B31B7 /* bt_fill_username@3x.png in Resources */,
+				8138A2971ABA8118005BB73F /* PFFolder1ViewController_Wide.xib in Resources */,
 				81B3DF711AB2D87E002B31B7 /* ic_close@3x.png in Resources */,
 				8115B9131AADA8D700DE1AFE /* ic_phone@3x.png in Resources */,
 				81A71D431AB8204A00620FD3 /* ic_tab_update_off@3x.png in Resources */,
 				81A71D3D1AB8204A00620FD3 /* ic_tab_card_off@3x.png in Resources */,
+				8138A29C1ABA813C005BB73F /* PFFolder2ViewController_Wide.xib in Resources */,
 				817702921AB93D4B0085D209 /* bt_useed@3x.png in Resources */,
 				817D6FC81AB723DA0095C297 /* bt_register@2x.png in Resources */,
 				81D4A36C1AB012F10046C1FB /* ic_next@2x.png in Resources */,
@@ -1553,6 +1637,7 @@
 				81B3DF4F1AB2D567002B31B7 /* pin_map@2x.png in Resources */,
 				819177201AA079D7004D4E9D /* icon_share@2x.png in Resources */,
 				81BB15541AB4094400225D66 /* ic_iphone@2x.png in Resources */,
+				8138A2A11ABA81EC005BB73F /* PFFolderCell.xib in Resources */,
 				81A71D411AB8204A00620FD3 /* ic_tab_service_off@3x.png in Resources */,
 				81B3DF6F1AB2D87E002B31B7 /* bt_signup@3x.png in Resources */,
 				81A71D361AB8204A00620FD3 /* ic_tab_card_on@2x.png in Resources */,
@@ -1623,6 +1708,7 @@
 				81BB15371AB3F70200225D66 /* UIImageView+WebCache.m in Sources */,
 				81881D761AAD558B007071DE /* DLILCacheManager.m in Sources */,
 				81D4A3AB1AB01F150046C1FB /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				8138A2A01ABA81EC005BB73F /* PFFolderCell.m in Sources */,
 				817702751AB927E40085D209 /* PFServiceDetailViewController.m in Sources */,
 				81D4A3A41AB01F150046C1FB /* AFNetworkActivityIndicatorManager.m in Sources */,
 				81881D771AAD558B007071DE /* DLILOperation.m in Sources */,
@@ -1643,12 +1729,14 @@
 				81BB15311AB3F70200225D66 /* SDWebImagePrefetcher.m in Sources */,
 				81881D751AAD558B007071DE /* DLILCache.m in Sources */,
 				819176BE1AA075CD004D4E9D /* main.m in Sources */,
+				8138A2961ABA8118005BB73F /* PFFolder1ViewController.m in Sources */,
 				81A71D221AB7E50E00620FD3 /* UILabel+UILabelDynamicHeight.m in Sources */,
 				81881D781AAD558B007071DE /* DLImageLoader.m in Sources */,
 				81BB151F1AB3F70200225D66 /* PSTCollectionViewController.m in Sources */,
 				81D4A3B91AB038020046C1FB /* CMMapLauncher.m in Sources */,
 				8177026D1AB91C950085D209 /* PFTimesViewController.m in Sources */,
 				81D4A3681AB00FFA0046C1FB /* PFEditCardViewController.m in Sources */,
+				8138A2A81ABAA30E005BB73F /* ScrollView.m in Sources */,
 				8115B91E1AADADCF00DE1AFE /* PFCommentViewController.m in Sources */,
 				81D4A37D1AB01E860046C1FB /* PFApi.m in Sources */,
 				81D4A3A71AB01F150046C1FB /* AFURLConnectionOperation.m in Sources */,
@@ -1656,6 +1744,7 @@
 				81D4A3A81AB01F150046C1FB /* AFURLRequestSerialization.m in Sources */,
 				81BB15111AB3F70200225D66 /* MWCaptionView.m in Sources */,
 				81346D301AB14A5E00C2DCF4 /* PFTimesDetailViewController.m in Sources */,
+				8138A2AC1ABAA349005BB73F /* AsyncImageView.m in Sources */,
 				81BB152C1AB3F70200225D66 /* SDWebImageCompat.m in Sources */,
 				81D4A3AA1AB01F150046C1FB /* AFURLSessionManager.m in Sources */,
 				81BB15181AB3F70200225D66 /* MWZoomingScrollView.m in Sources */,
@@ -1686,6 +1775,7 @@
 				81D4A3A51AB01F150046C1FB /* AFNetworkReachabilityManager.m in Sources */,
 				81BB15191AB3F70200225D66 /* DACircularProgressView.m in Sources */,
 				81BB152F1AB3F70200225D66 /* SDWebImageDownloaderOperation.m in Sources */,
+				8138A29B1ABA813C005BB73F /* PFFolder2ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1811,6 +1901,8 @@
 					Clinic/Library,
 					"$(PROJECT_DIR)/Times",
 					Clinic/Library,
+					"$(PROJECT_DIR)/Times",
+					Clinic/Library,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Times Clinic/Times Clinic-Prefix.pch";
@@ -1830,6 +1922,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Phee Puthaprasert (Q8MZLL79Y4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/Times",
+					Clinic/Library,
 					"$(PROJECT_DIR)/Times",
 					Clinic/Library,
 					"$(PROJECT_DIR)/Times",

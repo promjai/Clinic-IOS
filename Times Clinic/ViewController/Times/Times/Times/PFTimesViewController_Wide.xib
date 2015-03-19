@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="bg_nologinView" destination="Fpg-Fa-nNJ" id="TZI-l3-obA"/>
                 <outlet property="bt_consult" destination="snE-6y-F6V" id="911-74-eON"/>
+                <outlet property="bt_edit" destination="5ED-MT-WiY" id="mEk-Fw-22G"/>
                 <outlet property="bt_register" destination="0be-j1-0fx" id="Oia-i9-2zH"/>
                 <outlet property="headerView" destination="If6-o9-3Ce" id="mR7-rh-3k2"/>
                 <outlet property="lb_nologin" destination="JSE-du-C67" id="kV7-t4-Pr4"/>

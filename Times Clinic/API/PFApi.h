@@ -115,9 +115,12 @@
 
 #pragma mark - Service
 - (void)getService:(NSString *)limit link:(NSString *)link;
+- (void)getServiceByURL:(NSString *)url;
+- (void)getServiceByID:(NSString *)service_id;
+
 - (void)getPromotion:(NSString *)limit link:(NSString *)link;
-- (void)getPromotionByID:(NSString *)coupon_id;
-- (void)getPromotionRequest:(NSString *)coupon_id;
+- (void)getPromotionByID:(NSString *)promotion_id;
+- (void)getPromotionRequest:(NSString *)promotion_id;
 
 #pragma mark - Times
 - (void)getTimes;

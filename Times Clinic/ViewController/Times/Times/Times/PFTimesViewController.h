@@ -42,11 +42,11 @@
 
 //login
 @property (strong, nonatomic) IBOutlet UIView *headerView;
-@property (strong, nonatomic) IBOutlet UIView *bg_headerView;
 
 @property (strong, nonatomic) IBOutlet UITextField *txt_name;
 @property (strong, nonatomic) IBOutlet UITextField *txt_hn;
 
+@property (strong, nonatomic) IBOutlet UIButton *bt_edit;
 @property (strong, nonatomic) IBOutlet UIButton *bt_consult;
 
 // button Tap
