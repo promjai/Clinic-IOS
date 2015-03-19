@@ -67,7 +67,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(NSUInteger)supportedInterfaceOrientations{
+-(NSUInteger)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
 }
 
@@ -99,12 +99,12 @@
 - (void)setLocation {
     
     CLLocationCoordinate2D location;
-    location.latitude = 18.797633;
-    location.longitude = 98.973255;
+    location.latitude = [[[self.obj objectForKey:@"map"] objectForKey:@"lat"] doubleValue];
+    location.longitude = [[[self.obj objectForKey:@"map"] objectForKey:@"lng"] doubleValue];
     
     MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
     point.coordinate = location;
-    point.title = @"Times Clinic";
+    point.title = [self.obj objectForKey:@"location_name"];
     
     [self.mapView addAnnotation:point];
     [self.mapView selectAnnotation:point animated:NO];
@@ -130,8 +130,8 @@
     self.currentLocation = newLocation;
     CLLocationCoordinate2D location;
     
-    location.latitude = 18.797633;
-    location.longitude = 98.973255;
+    location.latitude = [[[self.obj objectForKey:@"map"] objectForKey:@"lat"] doubleValue];
+    location.longitude = [[[self.obj objectForKey:@"map"] objectForKey:@"lng"] doubleValue];
     [self.locationManager stopUpdatingLocation];
     [CMMapLauncher launchMapApp:CMMapAppAppleMaps
               forDirectionsFrom:[CMMapPoint mapPointWithName:@"Origin"

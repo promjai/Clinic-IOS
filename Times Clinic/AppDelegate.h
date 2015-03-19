@@ -13,7 +13,12 @@
 #import "PFTimesViewController.h"
 #import "PFContactViewController.h"
 
-@interface AppDelegate : UIResponder <UITabBarControllerDelegate>
+#import <MobileCoreServices/UTCoreTypes.h>
+#import "SDImageCache.h"
+#import "MWPhoto.h"
+#import "MWPhotoBrowser.h"
+
+@interface AppDelegate : UIResponder <UITabBarControllerDelegate,UIApplicationDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,MWPhotoBrowserDelegate>
 
 @property (assign, nonatomic) id delegate;
 @property (strong, nonatomic) UIWindow *window;
@@ -22,6 +27,9 @@
 @property (strong, nonatomic) PFServiceViewController *service;
 @property (strong, nonatomic) PFTimesViewController *times;
 @property (strong, nonatomic) PFContactViewController *contact;
+
+@property (nonatomic, strong) NSMutableArray *photos;
+@property (nonatomic, strong) NSMutableArray *thumbs;
 
 @end
 

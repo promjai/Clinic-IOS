@@ -18,6 +18,9 @@ BOOL loadContact;
 BOOL noDataContact;
 BOOL refreshDataContact;
 
+int contactInt;
+NSTimer *timmer;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -49,9 +52,6 @@ BOOL refreshDataContact;
     /* NavigationBar */
     [self setNavigationBar];
     
-    /* MapImage */
-    [self setMapImage];
-    
     /* View */
     [self setView];
     
@@ -62,7 +62,7 @@ BOOL refreshDataContact;
     // Dispose of any resources that can be recreated.
 }
 
--(NSUInteger)supportedInterfaceOrientations{
+-(NSUInteger)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
 }
 
@@ -71,19 +71,6 @@ BOOL refreshDataContact;
 - (void)setNavigationBar {
     
     self.navigationItem.title = @"ติดต่อ";
-    
-}
-
-/* Set MapImage */
-
-- (void)setMapImage {
-    
-    NSString *urlmap = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@",@"http://maps.googleapis.com/maps/api/staticmap?center=",@"18.797633",@",",@"98.973255",@"&zoom=16&size=640x360&sensor=false&markers=color:red%7Clabel:o%7C",@"18.797633",@",",@"98.973255"];
-    
-    [DLImageLoader loadImageFromURL:urlmap
-                          completed:^(NSError *error, NSData *imgData) {
-                              self.img_map.image = [UIImage imageWithData:imgData];
-                          }];
     
 }
 
@@ -96,7 +83,19 @@ BOOL refreshDataContact;
     
     [self.bt_comment.layer setMasksToBounds:YES];
     [self.bt_comment.layer setCornerRadius:5.0f];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
 
+}
+
+/* Refresh Table */
+
+- (void)refresh:(UIRefreshControl *)refreshControl {
+    
+    [self.Api getContact];
+    
 }
 
 /* Contact API */
@@ -107,9 +106,20 @@ BOOL refreshDataContact;
     self.obj = response;
     
     [self.waitView removeFromSuperview];
+    [self.refreshControl endRefreshing];
+    
+    [self.NoInternetView removeFromSuperview];
+    self.checkinternet = @"connect";
     
     [self.contactOffline setObject:response forKey:@"contactArray"];
     [self.contactOffline synchronize];
+    
+    NSString *urlmap = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@",@"http://maps.googleapis.com/maps/api/staticmap?center=",[[response objectForKey:@"map"] objectForKey:@"lat"],@",",[[response objectForKey:@"map"] objectForKey:@"lng"],@"&zoom=16&size=640x360&sensor=false&markers=color:red%7Clabel:o%7C",[[response objectForKey:@"map"] objectForKey:@"lat"],@",",[[response objectForKey:@"map"] objectForKey:@"lng"]];
+    
+    [DLImageLoader loadImageFromURL:urlmap
+                          completed:^(NSError *error, NSData *imgData) {
+                              self.img_map.image = [UIImage imageWithData:imgData];
+                          }];
     
     self.txt_phone.text = [response objectForKey:@"phone"];
     self.txt_website.text = [response objectForKey:@"website"];
@@ -122,11 +132,45 @@ BOOL refreshDataContact;
 - (void)PFApi:(id)sender getContactErrorResponse:(NSString *)errorResponse {
     NSLog(@"%@",errorResponse);
     
+    [self.waitView removeFromSuperview];
+    [self.refreshControl endRefreshing];
+    
+    self.checkinternet = @"error";
+    self.NoInternetView.frame = CGRectMake(0, 64, self.NoInternetView.frame.size.width, self.NoInternetView.frame.size.height);
+    [self.view addSubview:self.NoInternetView];
+    
+    contactInt = 5;
+    timmer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDown) userInfo:nil repeats:YES];
+    
+    NSString *urlmap = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@",@"http://maps.googleapis.com/maps/api/staticmap?center=",[[[self.contactOffline objectForKey:@"contactArray"] objectForKey:@"map"] objectForKey:@"lat"],@",",[[[self.contactOffline objectForKey:@"contactArray"] objectForKey:@"map"] objectForKey:@"lng"],@"&zoom=16&size=640x360&sensor=false&markers=color:red%7Clabel:o%7C",[[[self.contactOffline objectForKey:@"contactArray"] objectForKey:@"map"] objectForKey:@"lat"],@",",[[[self.contactOffline objectForKey:@"contactArray"] objectForKey:@"map"] objectForKey:@"lng"]];
+    
+    [DLImageLoader loadImageFromURL:urlmap
+                          completed:^(NSError *error, NSData *imgData) {
+                              self.img_map.image = [UIImage imageWithData:imgData];
+                          }];
+    
+    self.txt_phone.text = [[self.contactOffline objectForKey:@"contactArray"] objectForKey:@"phone"];
+    self.txt_website.text = [[self.contactOffline objectForKey:@"contactArray"] objectForKey:@"website"];
+    self.txt_email.text = [[self.contactOffline objectForKey:@"contactArray"] objectForKey:@"email"];
+    self.txt_facebook.text = [[[self.contactOffline objectForKey:@"contactArray"] objectForKey:@"facebook"] objectForKey:@"name"];
+    self.txt_line.text = [[[self.contactOffline objectForKey:@"contactArray"] objectForKey:@"line"] objectForKey:@"id"];
+    
+}
+
+- (void)countDown {
+    
+    contactInt -= 1;
+    if (contactInt == 0) {
+        [self.NoInternetView removeFromSuperview];
+    }
+    
 }
 
 /* Map Tap */
 
 - (IBAction)mapTapped:(id)sender {
+    
+    [self.NoInternetView removeFromSuperview];
     
     PFMapViewController *mapView = [[PFMapViewController alloc] init];
     if(IS_WIDESCREEN) {
@@ -135,6 +179,7 @@ BOOL refreshDataContact;
         mapView = [[PFMapViewController alloc] initWithNibName:@"PFMapViewController" bundle:nil];
     }
     mapView.delegate = self;
+    mapView.obj = self.obj;
     mapView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:mapView animated:YES];
 
@@ -143,6 +188,8 @@ BOOL refreshDataContact;
 /* Phone Tap */
 
 - (IBAction)phoneTapped:(id)sender {
+    
+    [self.NoInternetView removeFromSuperview];
 
     if (![self.txt_phone.text isEqualToString:@""]) {
         
@@ -156,6 +203,8 @@ BOOL refreshDataContact;
 /* Website Tap */
 
 - (IBAction)websiteTapped:(id)sender {
+    
+    [self.NoInternetView removeFromSuperview];
 
     if (![self.txt_website.text isEqualToString:@""]) {
         
@@ -169,6 +218,8 @@ BOOL refreshDataContact;
 /* Email Tap */
 
 - (IBAction)emailTapped:(id)sender {
+    
+    [self.NoInternetView removeFromSuperview];
 
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:@"Select Menu"
@@ -183,6 +234,8 @@ BOOL refreshDataContact;
 /* Facebook Tap */
 
 - (IBAction)facebookTapped:(id)sender {
+    
+    [self.NoInternetView removeFromSuperview];
 
     NSString *stringURL = [[NSString alloc] initWithFormat:@"fb://profile/%@",[[self.obj objectForKey:@"facebook"] objectForKey:@"id"]];
     NSURL *url = [NSURL URLWithString:stringURL];
@@ -194,6 +247,8 @@ BOOL refreshDataContact;
 
 - (IBAction)lineTapped:(id)sender {
     
+    [self.NoInternetView removeFromSuperview];
+    
     NSString *stringURL = [[NSString alloc] initWithFormat:@"line://ti/p/%@",[[self.obj objectForKey:@"line"] objectForKey:@"code"]];
     NSURL *url = [NSURL URLWithString:stringURL];
     [[UIApplication sharedApplication] openURL:url];
@@ -204,32 +259,7 @@ BOOL refreshDataContact;
 
 - (IBAction)commentTapped:(id)sender {
     
-    if ([self.Api checkLogin] == false){
-        
-        self.loginView = [PFLoginViewController alloc];
-        self.loginView.delegate = self;
-        self.loginView.menu = @"comment";
-        [self.view addSubview:self.loginView.view];
-        
-    }else{
-    
-        PFCommentViewController *commentView = [[PFCommentViewController alloc] init];
-        if(IS_WIDESCREEN) {
-            commentView = [[PFCommentViewController alloc] initWithNibName:@"PFCommentViewController_Wide" bundle:nil];
-        } else {
-            commentView = [[PFCommentViewController alloc] initWithNibName:@"PFCommentViewController" bundle:nil];
-        }
-        commentView.delegate = self;
-        commentView.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:commentView animated:YES];
-        
-    }
-
-}
-
-/* Return Login */
-
-- (void)PFCommentViewController:(id)sender {
+    [self.NoInternetView removeFromSuperview];
     
     PFCommentViewController *commentView = [[PFCommentViewController alloc] init];
     if(IS_WIDESCREEN) {
@@ -240,12 +270,14 @@ BOOL refreshDataContact;
     commentView.delegate = self;
     commentView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:commentView animated:YES];
-    
+
 }
 
 /* Power By Tap */
 
 - (IBAction)powerbyTapped:(id)sender {
+    
+    [self.NoInternetView removeFromSuperview];
     
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://pla2fusion.com/"]];
 

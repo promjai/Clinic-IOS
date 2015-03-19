@@ -14,7 +14,10 @@
 
 @protocol PFLoginViewControllerDelegate <NSObject>
 
-- (void)PFCommentViewController:(id)sender;
+- (void)closeloginView:(id)sender;
+- (void)PFSettingViewController:(id)sender;
+- (void)PFPromotionViewController:(id)sender;
+- (void)PFTimesViewController:(id)sender;
 
 @end
 

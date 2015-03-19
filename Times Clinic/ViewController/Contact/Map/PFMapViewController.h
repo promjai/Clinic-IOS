@@ -13,6 +13,7 @@
 @interface PFMapViewController : UIViewController <MKMapViewDelegate,CLLocationManagerDelegate>
 
 @property (assign, nonatomic) id delegate;
+@property (strong, nonatomic) NSDictionary *obj;
 
 @property (strong, nonatomic) IBOutlet PFMapView *mapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;

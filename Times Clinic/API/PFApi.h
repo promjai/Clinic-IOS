@@ -23,6 +23,46 @@
 - (void)PFApi:(id)sender loginWithUsernameResponse:(NSDictionary *)response;
 - (void)PFApi:(id)sender loginWithUsernameErrorResponse:(NSString *)errorResponse;
 
+#pragma mark - User
+- (void)PFApi:(id)sender userResponse:(NSDictionary *)response;
+- (void)PFApi:(id)sender userErrorResponse:(NSString *)errorResponse;
+
+- (void)PFApi:(id)sender userSettingResponse:(NSDictionary *)response;
+- (void)PFApi:(id)sender userSettingErrorResponse:(NSString *)errorResponse;
+
+- (void)PFApi:(id)sender userSwitchResponse:(NSDictionary *)response;
+- (void)PFApi:(id)sender userSwitchErrorResponse:(NSString *)errorResponse;
+
+- (void)PFApi:(id)sender userSwitchOnOffResponse:(NSDictionary *)response;
+- (void)PFApi:(id)sender userSwitchOnOffErrorResponse:(NSString *)errorResponse;
+
+- (void)PFApi:(id)sender changPasswordResponse:(NSDictionary *)response;
+- (void)PFApi:(id)sender changPasswordErrorResponse:(NSString *)errorResponse;
+
+#pragma mark - Feed Protocal Delegate
+- (void)PFApi:(id)sender getOverviewResponse:(NSDictionary *)response;
+- (void)PFApi:(id)sender getOverviewErrorResponse:(NSString *)errorResponse;
+
+- (void)PFApi:(id)sender getFeedResponse:(NSDictionary *)response;
+- (void)PFApi:(id)sender getFeedErrorResponse:(NSString *)errorResponse;
+
+#pragma mark - Service Protocal Delegate
+- (void)PFApi:(id)sender getServiceResponse:(NSDictionary *)response;
+- (void)PFApi:(id)sender getServiceErrorResponse:(NSString *)errorResponse;
+
+- (void)PFApi:(id)sender getPromotionResponse:(NSDictionary *)response;
+- (void)PFApi:(id)sender getPromotionErrorResponse:(NSString *)errorResponse;
+
+- (void)PFApi:(id)sender getPromotionRequestResponse:(NSDictionary *)response;
+- (void)PFApi:(id)sender getPromotionRequestErrorResponse:(NSString *)errorResponse;
+
+#pragma mark - Times Protocal Delegate
+- (void)PFApi:(id)sender getTimesResponse:(NSDictionary *)response;
+- (void)PFApi:(id)sender getTimesErrorResponse:(NSString *)errorResponse;
+
+- (void)PFApi:(id)sender checkPasswordResponse:(NSDictionary *)response;
+- (void)PFApi:(id)sender checkPasswordErrorResponse:(NSString *)errorResponse;
+
 #pragma mark - Contact Protocal Delegate
 - (void)PFApi:(id)sender getContactResponse:(NSDictionary *)response;
 - (void)PFApi:(id)sender getContactErrorResponse:(NSString *)errorResponse;
@@ -61,6 +101,27 @@
 
 #pragma mark - Log out
 - (void)logOut;
+
+#pragma mark - User
+- (void)user;
+- (void)userSwitch;
+- (void)userSetting:(NSString *)parameter value:(NSString *)value;
+- (void)changePassword:(NSString *)password new_password:(NSString *)new_password confirm_password:(NSString *)confirm_password;
+- (void)userswitchOnOff:(NSString *)parameter value:(NSString *)value;
+
+#pragma mark - Feed
+- (void)getOverview;
+- (void)getFeed;
+
+#pragma mark - Service
+- (void)getService:(NSString *)limit link:(NSString *)link;
+- (void)getPromotion:(NSString *)limit link:(NSString *)link;
+- (void)getPromotionByID:(NSString *)coupon_id;
+- (void)getPromotionRequest:(NSString *)coupon_id;
+
+#pragma mark - Times
+- (void)getTimes;
+- (void)checkPassword:(NSString *)password;
 
 #pragma mark - Contact
 - (void)getContact;

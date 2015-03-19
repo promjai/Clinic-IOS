@@ -14,6 +14,7 @@
 
 @implementation AppDelegate
 
+BOOL newMedia;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -132,11 +133,11 @@
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController  {
     if (tabBarController.selectedIndex == 0) {
 
-        [self.update viewDidLoad];
+        //[self.update viewDidLoad];
         
     } else if (tabBarController.selectedIndex == 1) {
 
-        [self.service viewDidLoad];
+        //[self.service viewDidLoad];
         
     } else if (tabBarController.selectedIndex == 2) {
 
@@ -144,7 +145,7 @@
         
     } else if (tabBarController.selectedIndex == 3) {
 
-        [self.contact viewDidLoad];
+        //[self.contact viewDidLoad];
         
     }
 }
@@ -193,9 +194,93 @@
     NSLog(@"Failed to get token, error: %@", error);
 }
 
-- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
-{
-    return (UIInterfaceOrientationMaskAll);
+- (void)PFImageViewController:(id)sender viewPicture:(UIImage *)image{
+    
+    NSMutableArray *photos = [[NSMutableArray alloc] init];
+    NSMutableArray *thumbs = [[NSMutableArray alloc] init];
+    MWPhoto *photo;
+    BOOL displayActionButton = YES;
+    BOOL displaySelectionButtons = NO;
+    BOOL displayNavArrows = NO;
+    BOOL enableGrid = NO;
+    BOOL startOnGrid = NO;
+    
+    photo = [MWPhoto photoWithImage:image];
+    [photos addObject:photo];
+    
+    enableGrid = NO;
+    self.photos = photos;
+    self.thumbs = thumbs;
+    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+    browser.displayActionButton = displayActionButton;
+    browser.displayNavArrows = displayNavArrows;
+    browser.displaySelectionButtons = displaySelectionButtons;
+    browser.alwaysShowControls = displaySelectionButtons;
+    browser.zoomPhotosToFill = NO;
+    browser.enableGrid = enableGrid;
+    browser.startOnGrid = startOnGrid;
+    [browser setCurrentPhotoIndex:0];
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:browser];
+    nc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self.window.rootViewController presentViewController:nc animated:YES completion:nil];
+    
+}
+
+- (void)PFGalleryViewController:(id)sender sum:(NSMutableArray *)sum current:(NSString *)current {
+    
+    NSMutableArray *photos = [[NSMutableArray alloc] init];
+    NSMutableArray *thumbs = [[NSMutableArray alloc] init];
+    MWPhoto *photo;
+    BOOL displayActionButton = YES;
+    BOOL displaySelectionButtons = NO;
+    BOOL displayNavArrows = NO;
+    BOOL enableGrid = NO;
+    BOOL startOnGrid = NO;
+    
+    for (int i=0; i<[sum count]; i++) {
+        NSString *t = [[NSString alloc] initWithFormat:@"%@",[sum objectAtIndex:i]];
+        photo = [MWPhoto photoWithURL:[[NSURL alloc] initWithString:t]];
+        [photos addObject:photo];
+    }
+    
+    enableGrid = NO;
+    self.photos = photos;
+    self.thumbs = thumbs;
+    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+    browser.displayActionButton = displayActionButton;
+    browser.displayNavArrows = displayNavArrows;
+    browser.displaySelectionButtons = displaySelectionButtons;
+    browser.alwaysShowControls = displaySelectionButtons;
+    browser.zoomPhotosToFill = NO;
+    browser.enableGrid = enableGrid;
+    browser.startOnGrid = startOnGrid;
+    [browser setCurrentPhotoIndex:[current intValue]];
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:browser];
+    nc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self.window.rootViewController presentViewController:nc animated:YES completion:nil];
+    
+}
+
+#pragma mark - MWPhotoBrowserDelegate
+
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    return _photos.count;
+}
+
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < _photos.count)
+        return [_photos objectAtIndex:index];
+    return nil;
+}
+
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser thumbPhotoAtIndex:(NSUInteger)index {
+    if (index < _thumbs.count)
+        return [_thumbs objectAtIndex:index];
+    return nil;
+}
+
+- (void)photoBrowser:(MWPhotoBrowser *)photoBrowser DoneTappedDelegate:(NSUInteger)index {
+    [self.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 // In order to process the response you get from interacting with the Facebook login process,

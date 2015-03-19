@@ -15,6 +15,7 @@
 @implementation PFLoginViewController
 
 FBLoginView *fbloginview;
+NSString *username;
 NSString *password;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -56,7 +57,7 @@ NSString *password;
     // Dispose of any resources that can be recreated.
 }
 
--(NSUInteger)supportedInterfaceOrientations{
+-(NSUInteger)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
 }
 
@@ -123,6 +124,10 @@ NSString *password;
 - (void)closeloginView:(UITapGestureRecognizer *)gesture
 {
     [self.view removeFromSuperview];
+    if ([self.menu isEqualToString:@"setting"]) {
+        [self.delegate closeloginView:self];
+        
+    }
 }
 
 - (void)registerView:(UITapGestureRecognizer *)gesture
@@ -218,9 +223,14 @@ NSString *password;
     
     [self.view removeFromSuperview];
     
-    if ([self.menu isEqualToString:@"comment"]) {
-        self.menu = @"";
-        [self.delegate PFCommentViewController:self];
+    if ([self.menu isEqualToString:@"setting"]) {
+        [self.delegate PFSettingViewController:self];
+        
+    } else if ([self.menu isEqualToString:@"promotion"]) {
+        [self.delegate PFPromotionViewController:self];
+        
+    } else if ([self.menu isEqualToString:@"times"]) {
+        [self.delegate PFTimesViewController:self];
         
     }
     
@@ -276,10 +286,16 @@ NSString *password;
         
         [self.view removeFromSuperview];
         
-        if ([self.menu isEqualToString:@"comment"]) {
+        if ([self.menu isEqualToString:@"setting"]) {
             self.menu = @"";
-            [self.delegate PFCommentViewController:self];
+            [self.delegate PFSettingViewController:self];
             
+        } else if ([self.menu isEqualToString:@"promotion"]) {
+            [self.delegate PFPromotionViewController:self];
+            
+        } else if ([self.menu isEqualToString:@"times"]) {
+            self.menu = @"";
+            [self.delegate PFTimesViewController:self];
         }
         
     }
@@ -384,6 +400,7 @@ NSString *password;
 - (IBAction)createTapped:(id)sender {
 
     password = self.passwordRegisTextField.text;
+    username = self.usernameRegisTextField.text;
     
     if ( [self.usernameRegisTextField.text isEqualToString:@""]) {
         
@@ -462,7 +479,7 @@ NSString *password;
     } else {
         
         [self hideKeyboard];
-        [self.Api loginWithUsername:[response objectForKey:@"username"] password:password];
+        [self.Api loginWithUsername:username password:password];
         
     }
 }

@@ -12,7 +12,6 @@
 
 #import "PFApi.h"
 
-#import "PFLoginViewController.h"
 #import "PFMapViewController.h"
 #import "PFCommentViewController.h"
 
@@ -24,10 +23,11 @@
 
 @property NSUserDefaults *contactOffline;
 
-@property (strong, nonatomic) PFLoginViewController *loginView;
-
 @property (strong, nonatomic) IBOutlet UIView *waitView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+
+@property (strong, nonatomic) IBOutlet UIView *NoInternetView;
+@property (strong, nonatomic) NSString *checkinternet;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
