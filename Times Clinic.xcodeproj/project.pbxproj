@@ -32,9 +32,9 @@
 		8138A29C1ABA813C005BB73F /* PFFolder2ViewController_Wide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8138A29A1ABA813C005BB73F /* PFFolder2ViewController_Wide.xib */; };
 		8138A2A01ABA81EC005BB73F /* PFFolderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8138A29E1ABA81EC005BB73F /* PFFolderCell.m */; };
 		8138A2A11ABA81EC005BB73F /* PFFolderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8138A29F1ABA81EC005BB73F /* PFFolderCell.xib */; };
-		8138A2A41ABA92E1005BB73F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8138A2A31ABA92E1005BB73F /* FacebookSDK.framework */; };
 		8138A2A81ABAA30E005BB73F /* ScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8138A2A71ABAA30E005BB73F /* ScrollView.m */; };
 		8138A2AC1ABAA349005BB73F /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8138A2AB1ABAA349005BB73F /* AsyncImageView.m */; };
+		8160DBAD1ABD534E007F5626 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8160DBAC1ABD534E007F5626 /* FacebookSDK.framework */; };
 		817702611AB91C520085D209 /* PFServiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8177025F1AB91C520085D209 /* PFServiceCell.m */; };
 		817702621AB91C520085D209 /* PFServiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 817702601AB91C520085D209 /* PFServiceCell.xib */; };
 		817702671AB91C6D0085D209 /* PFServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 817702651AB91C6D0085D209 /* PFServiceViewController.m */; };
@@ -278,11 +278,11 @@
 		8138A29D1ABA81EC005BB73F /* PFFolderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFFolderCell.h; sourceTree = "<group>"; };
 		8138A29E1ABA81EC005BB73F /* PFFolderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFFolderCell.m; sourceTree = "<group>"; };
 		8138A29F1ABA81EC005BB73F /* PFFolderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFFolderCell.xib; sourceTree = "<group>"; };
-		8138A2A31ABA92E1005BB73F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "Times Clinic/Library/FacebookSDK.framework"; sourceTree = "<group>"; };
 		8138A2A61ABAA30E005BB73F /* ScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollView.h; sourceTree = "<group>"; };
 		8138A2A71ABAA30E005BB73F /* ScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollView.m; sourceTree = "<group>"; };
 		8138A2AA1ABAA348005BB73F /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		8138A2AB1ABAA349005BB73F /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
+		8160DBAC1ABD534E007F5626 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "Times Clinic/Library/FacebookSDK.framework"; sourceTree = "<group>"; };
 		8177025E1AB91C520085D209 /* PFServiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFServiceCell.h; sourceTree = "<group>"; };
 		8177025F1AB91C520085D209 /* PFServiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFServiceCell.m; sourceTree = "<group>"; };
 		817702601AB91C520085D209 /* PFServiceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFServiceCell.xib; sourceTree = "<group>"; };
@@ -584,7 +584,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81D4A3511AAFEA990046C1FB /* CoreGraphics.framework in Frameworks */,
-				8138A2A41ABA92E1005BB73F /* FacebookSDK.framework in Frameworks */,
+				8160DBAD1ABD534E007F5626 /* FacebookSDK.framework in Frameworks */,
 				81B3DF791AB2DB52002B31B7 /* FacebookSDK.framework in Frameworks */,
 				81D4A34F1AAFEA910046C1FB /* UIKit.framework in Frameworks */,
 				81D8842A1AAED9F500316CF0 /* MapKit.framework in Frameworks */,
@@ -1286,7 +1286,7 @@
 		81D4A3521AAFEADD0046C1FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8138A2A31ABA92E1005BB73F /* FacebookSDK.framework */,
+				8160DBAC1ABD534E007F5626 /* FacebookSDK.framework */,
 				81D4A3501AAFEA990046C1FB /* CoreGraphics.framework */,
 				81D884291AAED9F500316CF0 /* MapKit.framework */,
 				81D4A34E1AAFEA910046C1FB /* UIKit.framework */,
@@ -1903,6 +1903,14 @@
 					Clinic/Library,
 					"$(PROJECT_DIR)/Times",
 					Clinic/Library,
+					"$(PROJECT_DIR)/Times",
+					Clinic/Library,
+					"$(PROJECT_DIR)/Times",
+					Clinic/Library,
+					"$(PROJECT_DIR)/Times",
+					Clinic/Library,
+					"$(PROJECT_DIR)/Times",
+					Clinic/Library,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Times Clinic/Times Clinic-Prefix.pch";
@@ -1922,6 +1930,14 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Phee Puthaprasert (Q8MZLL79Y4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/Times",
+					Clinic/Library,
+					"$(PROJECT_DIR)/Times",
+					Clinic/Library,
+					"$(PROJECT_DIR)/Times",
+					Clinic/Library,
+					"$(PROJECT_DIR)/Times",
+					Clinic/Library,
 					"$(PROJECT_DIR)/Times",
 					Clinic/Library,
 					"$(PROJECT_DIR)/Times",

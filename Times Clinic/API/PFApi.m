@@ -261,6 +261,20 @@
 
 }
 
+- (void)clearBadge {
+    
+    self.urlStr = [[NSString alloc] initWithFormat:@"%@user/notify/clear_badge",API_URL];
+    
+    NSDictionary *parameters = @{@"access_token":[self getAccessToken]};
+    
+    [self.manager GET:self.urlStr parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"clear : %@",responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@",error);
+    }];
+    
+}
+
 #pragma mark - Service
 - (void)getService:(NSString *)limit link:(NSString *)link {
 
@@ -393,6 +407,18 @@
         [self.delegate PFApi:self checkPasswordResponse:responseObject];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self.delegate PFApi:self checkPasswordErrorResponse:[error localizedDescription]];
+    }];
+    
+}
+
+- (void)getDateTimes {
+
+    self.urlStr = [[NSString alloc] initWithFormat:@"%@appoint/datetime",API_URL];
+    
+    [self.manager GET:self.urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self.delegate PFApi:self getDateTimesResponse:responseObject];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.delegate PFApi:self getDateTimesErrorResponse:[error localizedDescription]];
     }];
     
 }

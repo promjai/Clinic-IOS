@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "PFApi.h"
+
 #import "PFUpdateViewController.h"
 #import "PFServiceViewController.h"
 #import "PFTimesViewController.h"
@@ -21,6 +23,7 @@
 @interface AppDelegate : UIResponder <UITabBarControllerDelegate,UIApplicationDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,MWPhotoBrowserDelegate>
 
 @property (assign, nonatomic) id delegate;
+@property (strong, nonatomic) PFApi *Api;
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) PFUpdateViewController *update;

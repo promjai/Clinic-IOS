@@ -30,6 +30,9 @@ BOOL newMedia;
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
+    self.Api = [[PFApi alloc] init];
+    self.Api.delegate = self;
+    
     [self tabbar];
     
     return YES;
@@ -151,6 +154,15 @@ BOOL newMedia;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
+    
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    
+    if ([[def objectForKey:@"badge"] intValue] == 0 && [[self.Api getAccessToken] length] != 0) {
+        
+        [self.Api clearBadge];
+        
+    }
+    
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
@@ -192,6 +204,20 @@ BOOL newMedia;
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
 {
     NSLog(@"Failed to get token, error: %@", error);
+}
+
+- (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[[userInfo objectForKey:@"aps"] objectForKey:@"badge"] forKey:@"badge"];
+    [defaults synchronize];
+    NSLog(@"Received notification: %@", [[userInfo objectForKey:@"aps"] objectForKey:@"badge"]);
+}
+
+- (void)PFRatreeSamosornApi:(id)sender checkBadgeResponse:(NSDictionary *)response {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[response objectForKey:@"length"] forKey:@"badge"];
+    [defaults synchronize];
 }
 
 - (void)PFImageViewController:(id)sender viewPicture:(UIImage *)image{

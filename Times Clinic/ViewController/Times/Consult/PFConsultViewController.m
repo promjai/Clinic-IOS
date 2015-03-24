@@ -17,6 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.Api = [[PFApi alloc] init];
+    self.Api.delegate = self;
+    
+    /* API */
+    [self.Api getDateTimes];
+    
     /* NavigationBar */
     [self setNavigationBar];
     
@@ -55,6 +61,41 @@
     
     [self.bt_submit.layer setMasksToBounds:YES];
     [self.bt_submit.layer setCornerRadius:5.0f];
+    
+//    NSTimeInterval interval  = [[NSDate date] timeIntervalSince1970] ;
+//    int myInt = (int)interval+900;
+//    NSString *dateSave = [[NSString alloc] initWithFormat:@"%d",myInt];
+//    
+//    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[dateSave intValue]];
+//    
+//    self.timePicker.minimumDate = date;
+    
+}
+
+- (void)PFApi:(id)sender getDateTimesResponse:(NSDictionary *)response {
+    NSLog(@"%@",response);
+    
+    self.timePicker.minuteInterval = [[response objectForKey:@"repeat"] integerValue];
+    
+}
+
+- (void)PFApi:(id)sender getDateTimesErrorResponse:(NSString *)errorResponse {
+    NSLog(@"%@",errorResponse);
+}
+
+/* Date Tap */
+
+- (IBAction)dateTapped:(id)sender {
+
+    
+
+}
+
+/* Time Tap */
+
+- (IBAction)timeTapped:(id)sender {
+
+    [self.view addSubview:self.timeView];
     
 }
 

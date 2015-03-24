@@ -63,6 +63,9 @@
 - (void)PFApi:(id)sender checkPasswordResponse:(NSDictionary *)response;
 - (void)PFApi:(id)sender checkPasswordErrorResponse:(NSString *)errorResponse;
 
+- (void)PFApi:(id)sender getDateTimesResponse:(NSDictionary *)response;
+- (void)PFApi:(id)sender getDateTimesErrorResponse:(NSString *)errorResponse;
+
 #pragma mark - Contact Protocal Delegate
 - (void)PFApi:(id)sender getContactResponse:(NSDictionary *)response;
 - (void)PFApi:(id)sender getContactErrorResponse:(NSString *)errorResponse;
@@ -113,6 +116,9 @@
 - (void)getOverview;
 - (void)getFeed;
 
+- (void)checkBadge;
+- (void)clearBadge;
+
 #pragma mark - Service
 - (void)getService:(NSString *)limit link:(NSString *)link;
 - (void)getServiceByURL:(NSString *)url;
@@ -125,6 +131,7 @@
 #pragma mark - Times
 - (void)getTimes;
 - (void)checkPassword:(NSString *)password;
+- (void)getDateTimes;
 
 #pragma mark - Contact
 - (void)getContact;

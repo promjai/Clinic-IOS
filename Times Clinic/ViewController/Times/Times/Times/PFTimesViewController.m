@@ -88,16 +88,26 @@ BOOL refreshDataTimes;
 - (void)setView {
     
     [self.bg_nologinView.layer setMasksToBounds:YES];
-    [self.bg_nologinView.layer setCornerRadius:5.0f];
+    [self.bg_nologinView.layer setCornerRadius:10.0f];
     
     [self.bt_edit.layer setMasksToBounds:YES];
-    [self.bt_edit.layer setCornerRadius:5.0f];
+    [self.bt_edit.layer setCornerRadius:10.0f];
     
     [self.bt_register.layer setMasksToBounds:YES];
     [self.bt_register.layer setCornerRadius:5.0f];
     
     [self.bt_consult.layer setMasksToBounds:YES];
     [self.bt_consult.layer setCornerRadius:5.0f];
+    
+    CAGradientLayer *gradientNologin = [CAGradientLayer layer];
+    gradientNologin.frame = self.bg_nologinView.bounds;
+    gradientNologin.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor] CGColor], (id)[[UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f] CGColor], nil];
+    [self.bg_nologinView.layer insertSublayer:gradientNologin atIndex:0];
+    
+    CAGradientLayer *gradientlogin = [CAGradientLayer layer];
+    gradientlogin.frame = self.bt_edit.bounds;
+    gradientlogin.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor] CGColor], (id)[[UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f] CGColor], nil];
+    [self.bt_edit.layer insertSublayer:gradientlogin atIndex:0];
     
 }
 
