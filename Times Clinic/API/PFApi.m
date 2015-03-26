@@ -261,6 +261,39 @@
 
 }
 
+- (void)getNotification:(NSString *)limit link:(NSString *)link {
+    
+    if ([link isEqualToString:@"NO"] ) {
+        self.urlStr = [[NSString alloc] initWithFormat:@"%@user/notify?limit=%@",API_URL,limit];
+    } else if ([limit isEqualToString:@"NO"]) {
+        self.urlStr = link;
+    }
+    
+    NSDictionary *parameters = @{@"access_token":[self getAccessToken]};
+    self.manager = [AFHTTPRequestOperationManager manager];
+    self.manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    self.manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [self.manager.requestSerializer setValue:nil forHTTPHeaderField:@"X-Auth-Token"];
+    [self.manager GET:self.urlStr parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self.delegate PFApi:self getNotificationResponse:responseObject];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.delegate PFApi:self getNotificationErrorResponse:[error localizedDescription]];
+    }];
+    
+}
+
+- (void)deleteNotification:(NSString *)notify_id {
+    
+    self.urlStr = [[NSString alloc] initWithFormat:@"%@user/notify/%@",API_URL,notify_id];
+    
+    [self.manager DELETE:self.urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self.delegate PFApi:self deleteNotificationResponse:responseObject];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.delegate PFApi:self deleteNotificationErrorResponse:[error localizedDescription]];
+    }];
+    
+}
+
 - (void)clearBadge {
     
     self.urlStr = [[NSString alloc] initWithFormat:@"%@user/notify/clear_badge",API_URL];
@@ -421,6 +454,48 @@
         [self.delegate PFApi:self getDateTimesErrorResponse:[error localizedDescription]];
     }];
     
+}
+
+- (void)appoint:(NSString *)date time:(NSString *)time name:(NSString *)name phone:(NSString *)phone detail:(NSString *)detail status:(NSString *)status {
+
+    self.urlStr = [[NSString alloc] initWithFormat:@"%@appoint",API_URL];
+    
+    NSDictionary *parameters = @{@"date_add":date , @"time_add":time , @"detail":detail , @"name":name , @"phone":phone , @"status":status , @"access_token":[self getAccessToken]};
+    
+    [self.manager POST:self.urlStr parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self.delegate PFApi:self apppointResponse:responseObject];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.delegate PFApi:self apppointErrorResponse:[error localizedDescription]];
+    }];
+
+}
+
+- (void)appointById:(NSString *)appoint_id {
+
+    self.urlStr = [[NSString alloc] initWithFormat:@"%@appoint/%@",API_URL,appoint_id];
+    
+    NSDictionary *parameters = @{@"access_token":[self getAccessToken]};
+    
+    [self.manager GET:self.urlStr parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self.delegate PFApi:self apppointByIdResponse:responseObject];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.delegate PFApi:self apppointByIdErrorResponse:[error localizedDescription]];
+    }];
+
+}
+
+- (void)appointStatus:(NSString *)status appoint_id:(NSString *)appoint_id {
+
+    self.urlStr = [[NSString alloc] initWithFormat:@"%@appoint/status/%@",API_URL,appoint_id];
+    
+    NSDictionary *parameters = @{@"status":status , @"access_token":[self getAccessToken]};
+    
+    [self.manager PUT:self.urlStr parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self.delegate PFApi:self apppointStatusResponse:responseObject];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.delegate PFApi:self apppointStatusErrorResponse:[error localizedDescription]];
+    }];
+
 }
 
 #pragma mark - Contact

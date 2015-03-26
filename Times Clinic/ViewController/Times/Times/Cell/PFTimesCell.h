@@ -10,4 +10,7 @@
 
 @interface PFTimesCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UILabel *lb_day;
+@property (strong, nonatomic) IBOutlet UILabel *lb_detail;
+
 @end

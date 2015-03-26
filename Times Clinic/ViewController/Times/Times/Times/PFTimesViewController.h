@@ -49,6 +49,11 @@
 @property (strong, nonatomic) IBOutlet UIButton *bt_edit;
 @property (strong, nonatomic) IBOutlet UIButton *bt_consult;
 
+@property (strong, nonatomic) NSString *checkstatus;
+
+@property (strong, nonatomic) IBOutlet UIView *NoInternetView;
+@property (strong, nonatomic) NSString *checkinternet;
+
 // button Tap
 - (IBAction)editTapped:(id)sender;
 - (IBAction)registerTapped:(id)sender;

@@ -226,6 +226,9 @@ NSString *password;
     if ([self.menu isEqualToString:@"setting"]) {
         [self.delegate PFSettingViewController:self];
         
+    } else if ([self.menu isEqualToString:@"notify"]) {
+        [self.delegate PFNotifyViewController:self];
+        
     } else if ([self.menu isEqualToString:@"promotion"]) {
         [self.delegate PFPromotionViewController:self];
         
@@ -289,6 +292,9 @@ NSString *password;
         if ([self.menu isEqualToString:@"setting"]) {
             self.menu = @"";
             [self.delegate PFSettingViewController:self];
+            
+        } else if ([self.menu isEqualToString:@"notify"]) {
+            [self.delegate PFNotifyViewController:self];
             
         } else if ([self.menu isEqualToString:@"promotion"]) {
             [self.delegate PFPromotionViewController:self];

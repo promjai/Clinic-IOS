@@ -16,6 +16,8 @@
 
 - (void)closeloginView:(id)sender;
 - (void)PFSettingViewController:(id)sender;
+- (void)PFNotifyViewController:(id)sender;
+
 - (void)PFPromotionViewController:(id)sender;
 - (void)PFTimesViewController:(id)sender;
 

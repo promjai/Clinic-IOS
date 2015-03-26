@@ -539,6 +539,7 @@
         consultView = [[PFConsultViewController alloc] initWithNibName:@"PFConsultViewController" bundle:nil];
     }
     consultView.delegate = self;
+    consultView.message = [self.obj objectForKey:@"name"];
     consultView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:consultView animated:YES];
     

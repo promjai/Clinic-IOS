@@ -118,6 +118,46 @@ BOOL refreshDataFeed;
 
 - (void)notify {
     
+    if ([self.Api checkLogin] == false) {
+        
+        self.navigationItem.leftBarButtonItem.enabled = NO;
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+        
+        self.loginView = [PFLoginViewController alloc];
+        self.loginView.delegate = self;
+        self.loginView.menu = @"notify";
+        [self.view addSubview:self.loginView.view];
+        
+    } else {
+        
+        PFNotificationViewController *notifyView = [[PFNotificationViewController alloc] init];
+        if(IS_WIDESCREEN) {
+            notifyView = [[PFNotificationViewController alloc] initWithNibName:@"PFNotificationViewController_Wide" bundle:nil];
+        } else {
+            notifyView = [[PFNotificationViewController alloc] initWithNibName:@"PFNotificationViewController" bundle:nil];
+        }
+        notifyView.delegate = self;
+        notifyView.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:notifyView animated:YES];
+        
+    }
+    
+}
+
+/* Return Notify */
+
+- (void)PFNotifyViewController:(id)sender {
+    
+    PFNotificationViewController *notifyView = [[PFNotificationViewController alloc] init];
+    if(IS_WIDESCREEN) {
+        notifyView = [[PFNotificationViewController alloc] initWithNibName:@"PFNotificationViewController_Wide" bundle:nil];
+    } else {
+        notifyView = [[PFNotificationViewController alloc] initWithNibName:@"PFNotificationViewController" bundle:nil];
+    }
+    notifyView.delegate = self;
+    notifyView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:notifyView animated:YES];
+    
 }
 
 /* Close Login View */

@@ -46,6 +46,12 @@
 - (void)PFApi:(id)sender getFeedResponse:(NSDictionary *)response;
 - (void)PFApi:(id)sender getFeedErrorResponse:(NSString *)errorResponse;
 
+- (void)PFApi:(id)sender getNotificationResponse:(NSDictionary *)response;
+- (void)PFApi:(id)sender getNotificationErrorResponse:(NSString *)errorResponse;
+
+- (void)PFApi:(id)sender deleteNotificationResponse:(NSDictionary *)response;
+- (void)PFApi:(id)sender deleteNotificationErrorResponse:(NSString *)errorResponse;
+
 #pragma mark - Service Protocal Delegate
 - (void)PFApi:(id)sender getServiceResponse:(NSDictionary *)response;
 - (void)PFApi:(id)sender getServiceErrorResponse:(NSString *)errorResponse;
@@ -65,6 +71,15 @@
 
 - (void)PFApi:(id)sender getDateTimesResponse:(NSDictionary *)response;
 - (void)PFApi:(id)sender getDateTimesErrorResponse:(NSString *)errorResponse;
+
+- (void)PFApi:(id)sender apppointResponse:(NSDictionary *)response;
+- (void)PFApi:(id)sender apppointErrorResponse:(NSString *)errorResponse;
+
+- (void)PFApi:(id)sender apppointByIdResponse:(NSDictionary *)response;
+- (void)PFApi:(id)sender apppointByIdErrorResponse:(NSString *)errorResponse;
+
+- (void)PFApi:(id)sender apppointStatusResponse:(NSDictionary *)response;
+- (void)PFApi:(id)sender apppointStatusErrorResponse:(NSString *)errorResponse;
 
 #pragma mark - Contact Protocal Delegate
 - (void)PFApi:(id)sender getContactResponse:(NSDictionary *)response;
@@ -116,6 +131,11 @@
 - (void)getOverview;
 - (void)getFeed;
 
+- (void)getNotification:(NSString *)limit link:(NSString *)link;
+- (void)deleteNotification:(NSString *)notify_id;
+
+- (void)getMessageById:(NSString *)message_id;
+
 - (void)checkBadge;
 - (void)clearBadge;
 
@@ -132,6 +152,9 @@
 - (void)getTimes;
 - (void)checkPassword:(NSString *)password;
 - (void)getDateTimes;
+- (void)appoint:(NSString *)date time:(NSString *)time name:(NSString *)name phone:(NSString *)phone detail:(NSString *)detail status:(NSString *)status;
+- (void)appointById:(NSString *)appoint_id;
+- (void)appointStatus:(NSString *)status appoint_id:(NSString *)appoint_id;
 
 #pragma mark - Contact
 - (void)getContact;

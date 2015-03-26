@@ -18,6 +18,9 @@ BOOL loadTimes;
 BOOL noDataTimes;
 BOOL refreshDataTimes;
 
+int TimesInt;
+NSTimer *timmer;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -33,14 +36,14 @@ BOOL refreshDataTimes;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.arrObj = [[NSMutableArray alloc] init];
+    
     self.Api = [[PFApi alloc] init];
     self.Api.delegate = self;
     
     loadTimes = NO;
     noDataTimes = NO;
     refreshDataTimes = NO;
-    
-     self.arrObj = [[NSMutableArray alloc] init];
     
     /* NavigationBar */
     [self setNavigationBar];
@@ -195,7 +198,14 @@ BOOL refreshDataTimes;
     
     [self.refreshControl endRefreshing];
     
+    [self.NoInternetView removeFromSuperview];
+    self.checkinternet = @"connect";
+    
+    [self.timesOffline setObject:response forKey:@"timesArray"];
+    [self.timesOffline synchronize];
+    
     if (!refreshDataTimes) {
+        [self.arrObj removeAllObjects];
         for (int i=0; i<[[response objectForKey:@"data"] count]; ++i) {
             [self.arrObj addObject:[[response objectForKey:@"data"] objectAtIndex:i]];
         }
@@ -205,9 +215,6 @@ BOOL refreshDataTimes;
             [self.arrObj addObject:[[response objectForKey:@"data"] objectAtIndex:i]];
         }
     }
-    
-    [self.timesOffline setObject:response forKey:@"timesArray"];
-    [self.timesOffline synchronize];
     
     if ( [[response objectForKey:@"paging"] objectForKey:@"next"] == nil ) {
         noDataTimes = YES;
@@ -222,6 +229,39 @@ BOOL refreshDataTimes;
 
 - (void)PFApi:(id)sender getTimesErrorResponse:(NSString *)errorResponse {
     NSLog(@"%@",errorResponse);
+    
+    [self.refreshControl endRefreshing];
+    
+    self.checkinternet = @"error";
+    self.NoInternetView.frame = CGRectMake(0, 64, self.NoInternetView.frame.size.width, self.NoInternetView.frame.size.height);
+    [self.view addSubview:self.NoInternetView];
+    
+    TimesInt = 5;
+    timmer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDown) userInfo:nil repeats:YES];
+    
+    if (!refreshDataTimes) {
+        [self.arrObj removeAllObjects];
+        for (int i=0; i<[[[self.timesOffline objectForKey:@"timesArray"] objectForKey:@"data"] count]; ++i) {
+            [self.arrObj addObject:[[[self.timesOffline objectForKey:@"timesArray"] objectForKey:@"data"] objectAtIndex:i]];
+        }
+    } else {
+        [self.arrObj removeAllObjects];
+        for (int i=0; i<[[[self.timesOffline objectForKey:@"timesArray"] objectForKey:@"data"] count]; ++i) {
+            [self.arrObj addObject:[[[self.timesOffline objectForKey:@"timesArray"] objectForKey:@"data"] objectAtIndex:i]];
+        }
+    }
+    
+    [self.tableView reloadData];
+    
+}
+
+/* Count Down */
+
+- (void)countDown {
+    TimesInt -= 1;
+    if (TimesInt == 0) {
+        [self.NoInternetView removeFromSuperview];
+    }
 }
 
 /* TableView */
@@ -256,6 +296,22 @@ BOOL refreshDataTimes;
         cell = [nib objectAtIndex:0];
     }
     
+    NSDateFormatter *monthFormatter = [[NSDateFormatter alloc] init];
+    [monthFormatter setDateFormat:@"MMM"];
+    
+    NSDateFormatter *getDateFormatter = [[NSDateFormatter alloc] init];
+    [getDateFormatter setDateFormat:@"yyyy-MM-dd"];
+    
+    NSString *dayOfMonth = [[NSString alloc] initWithFormat:@"%@",[[[self.arrObj objectAtIndex:indexPath.row] objectForKey:@"date_time"] substringToIndex:10]];
+    NSDate *date = [getDateFormatter dateFromString:dayOfMonth];
+    
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:date];
+    int year = [components year];
+    int day = [components day];
+    
+    cell.lb_day.text = [[NSString alloc] initWithFormat:@"%d %@ %d",day,[monthFormatter stringFromDate:date],year];
+    cell.lb_detail.text = [[self.arrObj objectAtIndex:indexPath.row] objectForKey:@"detail"];
+    
     return cell;
 
 }
@@ -269,6 +325,8 @@ BOOL refreshDataTimes;
         timesdetailView = [[PFTimesDetailViewController alloc] initWithNibName:@"PFTimesDetailViewController" bundle:nil];
     }
     timesdetailView.delegate = self;
+    timesdetailView.obj = [self.arrObj objectAtIndex:indexPath.row];
+    timesdetailView.status = [[self.arrObj objectAtIndex:indexPath.row] objectForKey:@"status"];
     timesdetailView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:timesdetailView animated:YES];
 
@@ -280,6 +338,24 @@ BOOL refreshDataTimes;
 
     /* API */
     [self.Api user];
+    
+}
+
+/* Consult Back */
+
+- (void)PFConsultViewControllerBack:(NSString *)consult_id {
+
+    /* API */
+    [self.Api getTimes];
+    
+}
+
+/* TimesDetail Back */
+
+- (void)PFTimesDetailViewControllerBack {
+
+    /* API */
+    [self.Api getTimes];
     
 }
 
