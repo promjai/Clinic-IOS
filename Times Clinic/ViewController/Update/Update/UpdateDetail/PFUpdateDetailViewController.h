@@ -15,6 +15,7 @@
 @protocol PFUpdateDetailViewControllerDelegate <NSObject>
 
 - (void)PFImageViewController:(id)sender viewPicture:(UIImage *)image;
+- (void)PFUpdateDetailViewControllerBack;
 
 @end
 

@@ -559,7 +559,7 @@
 
 #pragma mark - Rotation
 
--(BOOL)shouldAutorotate {
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     return YES;
 }
 

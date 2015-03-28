@@ -398,8 +398,16 @@ NSString *consult_id;
 
 - (IBAction)cancelTapped:(id)sender {
     
-    [self.delegate PFConsultViewControllerBack:@"0"];
-    [self.navigationController popViewControllerAnimated:YES];
+    if ([self.message isEqualToString:@""]) {
+        
+        [self.delegate PFConsultViewControllerBack:@"0"];
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    } else {
+        
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    }
     
 }
 

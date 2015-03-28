@@ -58,14 +58,4 @@
 		[_tapDelegate view:self tripleTapDetected:touch];
 }
 
-#pragma mark - Rotation
-
--(BOOL)shouldAutorotate {
-    return YES;
-}
-
-- (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskAll;
-}
-
 @end

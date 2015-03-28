@@ -12,6 +12,10 @@
 
 #import "PFApi.h"
 
+#import "PFUpdateDetailViewController.h"
+#import "PFTimesDetailViewController.h"
+#import "PFMessageViewController.h"
+
 @protocol PFNotificationViewControllerDelegate <NSObject>
 
 - (void)PFImageViewController:(id)sender viewPicture:(UIImage *)image;

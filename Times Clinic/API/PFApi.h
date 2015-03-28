@@ -46,11 +46,20 @@
 - (void)PFApi:(id)sender getFeedResponse:(NSDictionary *)response;
 - (void)PFApi:(id)sender getFeedErrorResponse:(NSString *)errorResponse;
 
+- (void)PFApi:(id)sender getFeedByIdResponse:(NSDictionary *)response;
+- (void)PFApi:(id)sender getFeedByIdErrorResponse:(NSString *)errorResponse;
+
+- (void)PFApi:(id)sender getMessageByIdResponse:(NSDictionary *)response;
+- (void)PFApi:(id)sender getMessageByIdErrorResponse:(NSString *)errorResponse;
+
 - (void)PFApi:(id)sender getNotificationResponse:(NSDictionary *)response;
 - (void)PFApi:(id)sender getNotificationErrorResponse:(NSString *)errorResponse;
 
 - (void)PFApi:(id)sender deleteNotificationResponse:(NSDictionary *)response;
 - (void)PFApi:(id)sender deleteNotificationErrorResponse:(NSString *)errorResponse;
+
+- (void)PFApi:(id)sender checkBadgeResponse:(NSDictionary *)response;
+- (void)PFApi:(id)sender checkBadgeErrorResponse:(NSString *)errorResponse;
 
 #pragma mark - Service Protocal Delegate
 - (void)PFApi:(id)sender getServiceResponse:(NSDictionary *)response;
@@ -129,12 +138,13 @@
 
 #pragma mark - Feed
 - (void)getOverview;
-- (void)getFeed;
+- (void)getFeed:(NSString *)limit link:(NSString *)link;
+- (void)getFeedById:(NSString *)feed_id;
+
+- (void)getMessageById:(NSString *)message_id;
 
 - (void)getNotification:(NSString *)limit link:(NSString *)link;
 - (void)deleteNotification:(NSString *)notify_id;
-
-- (void)getMessageById:(NSString *)message_id;
 
 - (void)checkBadge;
 - (void)clearBadge;

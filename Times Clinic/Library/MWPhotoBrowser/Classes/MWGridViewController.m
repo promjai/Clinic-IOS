@@ -202,14 +202,4 @@
     return UIEdgeInsetsMake(margin, margin, margin, margin);
 }
 
-#pragma mark - Rotation
-
--(BOOL)shouldAutorotate {
-    return YES;
-}
-
-- (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskAll;
-}
-
 @end

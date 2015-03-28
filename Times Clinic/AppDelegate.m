@@ -153,6 +153,11 @@ BOOL newMedia;
     }
 }
 
+//- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+//{
+//    return (UIInterfaceOrientationMaskAll);
+//}
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     
     NSUserDefaults *def = [NSUserDefaults standardUserDefaults];

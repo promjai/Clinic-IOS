@@ -23,7 +23,7 @@ BOOL refreshDataNoti;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        [[UINavigationBar appearance] setTintColor:[UIColor redColor]];
+        [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.0f/255.0f green:175.0f/255.0f blue:0.0f/255.0f alpha:1.0f]];
         self.manager = [AFHTTPRequestOperationManager manager];
         self.notifyOffline = [NSUserDefaults standardUserDefaults];
     }
@@ -162,26 +162,27 @@ BOOL refreshDataNoti;
 
 /* Get Feed API */
 
-//- (void)PFApi:(id)sender getFeedByIdResponse:(NSDictionary *)response {
-//    //NSLog(@"%@",response);
-//    
-//    PFUpdateDetailViewController *updatedetail = [[PFUpdateDetailViewController alloc] init];
-//    
-//    if(IS_WIDESCREEN){
-//        updatedetail = [[PFUpdateDetailViewController alloc] initWithNibName:@"PFUpdateDetailViewController_Wide" bundle:nil];
-//    } else {
-//        updatedetail = [[PFUpdateDetailViewController alloc] initWithNibName:@"PFUpdateDetailViewController" bundle:nil];
-//    }
-//    self.navigationItem.title = @" ";
-//    updatedetail.obj = response;
-//    updatedetail.delegate = self;
-//    [self.navigationController pushViewController:updatedetail animated:YES];
-//}
-//
-//- (void)PFApi:(id)sender getFeedByIdErrorResponse:(NSString *)errorResponse {
-//    NSLog(@"%@",errorResponse);
-//}
-//
+- (void)PFApi:(id)sender getFeedByIdResponse:(NSDictionary *)response {
+    //NSLog(@"%@",response);
+    
+    PFUpdateDetailViewController *updatedetail = [[PFUpdateDetailViewController alloc] init];
+    
+    if(IS_WIDESCREEN){
+        updatedetail = [[PFUpdateDetailViewController alloc] initWithNibName:@"PFUpdateDetailViewController_Wide" bundle:nil];
+    } else {
+        updatedetail = [[PFUpdateDetailViewController alloc] initWithNibName:@"PFUpdateDetailViewController" bundle:nil];
+    }
+    self.navigationItem.title = @" ";
+    updatedetail.obj = response;
+    updatedetail.delegate = self;
+    [self.navigationController pushViewController:updatedetail animated:YES];
+    
+}
+
+- (void)PFApi:(id)sender getFeedByIdErrorResponse:(NSString *)errorResponse {
+    NSLog(@"%@",errorResponse);
+}
+
 ////promotion
 //
 //- (void)PFApi:(id)sender getPromotionByIdResponse:(NSDictionary *)response {
@@ -203,55 +204,51 @@ BOOL refreshDataNoti;
 //- (void)PFApi:(id)sender getPromotionByIdErrorResponse:(NSString *)errorResponse {
 //    NSLog(@"%@",errorResponse);
 //}
-//
-////coupon
-//
-//- (void)PFApi:(id)sender getCouponByIdResponse:(NSDictionary *)response {
-//    //NSLog(@"%@",response);
-//    
-//    PFCouponDetailViewController *coupondetail = [[PFCouponDetailViewController alloc] init];
-//    
-//    if(IS_WIDESCREEN){
-//        coupondetail = [[PFCouponDetailViewController alloc] initWithNibName:@"PFCouponDetailViewController_Wide" bundle:nil];
-//    } else {
-//        coupondetail = [[PFCouponDetailViewController alloc] initWithNibName:@"PFCouponDetailViewController" bundle:nil];
-//    }
-//    self.navigationItem.title = @" ";
-//    coupondetail.obj = response;
-//    coupondetail.checkinternet = @"connect";
-//    coupondetail.delegate = self;
-//    [self.navigationController pushViewController:coupondetail animated:YES];
-//}
-//
-//- (void)PFApi:(id)sender getCouponByIdErrorResponse:(NSDictionary *)errorResponse {
-//    NSLog(@"%@",errorResponse);
-//}
-//
-////message
-//
-//- (void)PFApi:(id)sender getMessageByIdResponse:(NSDictionary *)response {
-//    //NSLog(@"%@",response);
-//    
-//    PFMessageViewController *coupondetail = [[PFMessageViewController alloc] init];
-//    
-//    if(IS_WIDESCREEN){
-//        coupondetail = [[PFMessageViewController alloc] initWithNibName:@"PFMessageViewController_Wide" bundle:nil];
-//    } else {
-//        coupondetail = [[PFMessageViewController alloc] initWithNibName:@"PFMessageViewController" bundle:nil];
-//    }
-//    self.navigationItem.title = @" ";
-//    NSString *message = [[NSString alloc] initWithFormat:@"%@   %@",[response objectForKey:@"message"],@""];
-//    coupondetail.message = message;
-//    coupondetail.delegate = self;
-//    [self.navigationController pushViewController:coupondetail animated:YES];
-//    
-//}
-//
-//- (void)PFApi:(id)sender getMessageByIdErrorResponse:(NSString *)errorResponse {
-//    NSLog(@"%@",errorResponse);
-//}
 
+//card
 
+- (void)PFApi:(id)sender apppointByIdResponse:(NSDictionary *)response {
+    NSLog(@"%@",response);
+    
+    PFTimesDetailViewController *timesdetailView = [[PFTimesDetailViewController alloc] init];
+    if(IS_WIDESCREEN) {
+        timesdetailView = [[PFTimesDetailViewController alloc] initWithNibName:@"PFTimesDetailViewController_Wide" bundle:nil];
+    } else {
+        timesdetailView = [[PFTimesDetailViewController alloc] initWithNibName:@"PFTimesDetailViewController" bundle:nil];
+    }
+    timesdetailView.delegate = self;
+    timesdetailView.obj = response;
+    timesdetailView.status = [response objectForKey:@"status"];
+    timesdetailView.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:timesdetailView animated:YES];
+    
+}
+
+- (void)PFApi:(id)sender apppointByIdErrorResponse:(NSDictionary *)errorResponse {
+    NSLog(@"%@",errorResponse);
+}
+
+//message
+
+- (void)PFApi:(id)sender getMessageByIdResponse:(NSDictionary *)response {
+    NSLog(@"%@",response);
+    
+    PFMessageViewController *coupondetail = [[PFMessageViewController alloc] init];
+    if(IS_WIDESCREEN){
+        coupondetail = [[PFMessageViewController alloc] initWithNibName:@"PFMessageViewController_Wide" bundle:nil];
+    } else {
+        coupondetail = [[PFMessageViewController alloc] initWithNibName:@"PFMessageViewController" bundle:nil];
+    }
+    NSString *message = [[NSString alloc] initWithFormat:@"%@   %@",[response objectForKey:@"message"],@""];
+    coupondetail.message = message;
+    coupondetail.delegate = self;
+    [self.navigationController pushViewController:coupondetail animated:YES];
+    
+}
+
+- (void)PFApi:(id)sender getMessageByIdErrorResponse:(NSString *)errorResponse {
+    NSLog(@"%@",errorResponse);
+}
 
 /* TableView */
 
@@ -293,24 +290,24 @@ BOOL refreshDataNoti;
     
     NSString *type = [[[self.arrObj objectAtIndex:indexPath.row] objectForKey:@"object"] objectForKey:@"type"];
     
-//    if ( [type isEqualToString:@"news"] ) {
-//        
-//        [self.Api getFeedById:[[[self.arrObj objectAtIndex:indexPath.row] objectForKey:@"object"] objectForKey:@"id"]];
-//        
-//    } else if ( [type isEqualToString:@"promotion"] ) {
+    if ( [type isEqualToString:@"news"] ) {
+        
+        [self.Api getFeedById:[[[self.arrObj objectAtIndex:indexPath.row] objectForKey:@"object"] objectForKey:@"id"]];
+        
+//    else if ( [type isEqualToString:@"promotion"] ) {
 //        
 //        [self.Api getPromotionById:[[[self.arrObj objectAtIndex:indexPath.row] objectForKey:@"object"] objectForKey:@"id"]];
 //        
-//    } else if ( [type isEqualToString:@"coupon"] ) {
-//        
-//        [self.Api getCouponById:[[[self.arrObj objectAtIndex:indexPath.row] objectForKey:@"object"] objectForKey:@"id"]];
-//        
-//    } else if ( [type isEqualToString:@"message"] ) {
-//    
-//        [self.Api getMessageById:[[[self.arrObj objectAtIndex:indexPath.row] objectForKey:@"object"] objectForKey:@"id"]];
-//    
-//    }
+    } else if ( [type isEqualToString:@"card"] ) {
+        
+        [self.Api appointById:[[[self.arrObj objectAtIndex:indexPath.row] objectForKey:@"object"] objectForKey:@"id"]];
+        
+    } else if ( [type isEqualToString:@"message"] ) {
     
+        [self.Api getMessageById:[[[self.arrObj objectAtIndex:indexPath.row] objectForKey:@"object"] objectForKey:@"id"]];
+    
+    }
+
     NSString *urlStr = [[NSString alloc] initWithFormat:@"%@user/notify/read/%@",API_URL,[[self.arrObj objectAtIndex:indexPath.row] objectForKey:@"id"]];
     
     NSDictionary *parameters = @{@"access_token":[self.Api getAccessToken]};
@@ -376,15 +373,11 @@ BOOL refreshDataNoti;
     [self viewDidLoad];
 }
 
-- (void)PFPromotionDetailViewControllerBack {
-    [self viewDidLoad];
-}
-
-- (void)PFCouponDetailViewControllerBack {
-    [self viewDidLoad];
-}
-
 - (void)PFMessageViewControllerBack {
+    [self viewDidLoad];
+}
+
+- (void)PFTimesDetailViewControllerBack {
     [self viewDidLoad];
 }
 

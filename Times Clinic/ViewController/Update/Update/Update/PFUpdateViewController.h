@@ -19,24 +19,32 @@
 
 @protocol PFUpdateViewControllerDelegate <NSObject>
 
+- (void)PFGalleryViewController:(id)sender sum:(NSMutableArray *)sum current:(NSString *)current;
 - (void)PFImageViewController:(id)sender viewPicture:(UIImage *)image;
 
 @end
 
 @interface PFUpdateViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
 
-@property (assign, nonatomic) id delegate;
+@property (strong, nonatomic) id delegate;
 @property (strong, nonatomic) PFApi *Api;
 @property (strong, nonatomic) NSMutableArray *arrObj;
+@property (strong, nonatomic) NSMutableArray *arrObjPhotos;
+
+@property NSUserDefaults *feedOffline;
 
 @property (strong, nonatomic) NSString *paging;
 
 @property (strong, nonatomic) PFLoginViewController *loginView;
 
+@property (strong, nonatomic) IBOutlet UIView *waitView;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
+
+@property (strong, nonatomic) IBOutlet UIView *NoInternetView;
 @property (strong, nonatomic) NSString *checkinternet;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-
 @property (strong, nonatomic) IBOutlet UIView *headerView;
+@property (strong, nonatomic) IBOutlet UIView *overView;
 
 @end

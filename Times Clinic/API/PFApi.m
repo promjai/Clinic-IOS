@@ -249,9 +249,13 @@
     
 }
 
-- (void)getFeed {
+- (void)getFeed:(NSString *)limit link:(NSString *)link {
     
-    self.urlStr = [[NSString alloc] initWithFormat:@"%@feed",API_URL];
+    if ([link isEqualToString:@"NO"] ) {
+        self.urlStr = [[NSString alloc] initWithFormat:@"%@feed?limit=%@",API_URL,limit];
+    } else if ([limit isEqualToString:@"NO"]) {
+        self.urlStr = link;
+    }
     
     [self.manager GET:self.urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self.delegate PFApi:self getFeedResponse:responseObject];
@@ -259,6 +263,30 @@
         [self.delegate PFApi:self getFeedErrorResponse:[error localizedDescription]];
     }];
 
+}
+
+- (void)getFeedById:(NSString *)news_id {
+    
+    self.urlStr = [[NSString alloc] initWithFormat:@"%@feed/%@",API_URL,news_id];
+    
+    [self.manager GET:self.urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self.delegate PFApi:self getFeedByIdResponse:responseObject];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.delegate PFApi:self getFeedByIdErrorResponse:[error localizedDescription]];
+    }];
+    
+}
+
+- (void)getMessageById:(NSString *)message_id {
+    
+    self.urlStr = [[NSString alloc] initWithFormat:@"%@message/%@",API_URL,message_id];
+    
+    [self.manager GET:self.urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self.delegate PFApi:self getMessageByIdResponse:responseObject];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.delegate PFApi:self getMessageByIdErrorResponse:[error localizedDescription]];
+    }];
+    
 }
 
 - (void)getNotification:(NSString *)limit link:(NSString *)link {
@@ -291,6 +319,28 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self.delegate PFApi:self deleteNotificationErrorResponse:[error localizedDescription]];
     }];
+    
+}
+
+- (void)checkBadge {
+    
+    if ([[self.userDefaults objectForKey:@"access_token"] length] != 0) {
+        
+        NSString *strUrl = [[NSString alloc] initWithFormat:@"%@user/notify/unopened",API_URL];
+        
+        self.manager = [AFHTTPRequestOperationManager manager];
+        self.manager.responseSerializer = [AFJSONResponseSerializer serializer];
+        self.manager.requestSerializer = [AFJSONRequestSerializer serializer];
+        [self.manager.requestSerializer setValue:nil forHTTPHeaderField:@"X-Auth-Token"];
+        
+        NSDictionary *parameters = @{@"access_token":[self getAccessToken]};
+        
+        [self.manager  GET:strUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [self.delegate PFApi:self checkBadgeResponse:responseObject];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [self.delegate PFApi:self checkBadgeErrorResponse:[error localizedDescription]];
+        }];
+    }
     
 }
 

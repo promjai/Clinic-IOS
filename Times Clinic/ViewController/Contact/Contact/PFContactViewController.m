@@ -85,6 +85,7 @@ NSTimer *timmer;
     [self.bt_comment.layer setCornerRadius:5.0f];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl setTintColor:[UIColor whiteColor]];
     [self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
 

@@ -278,4 +278,15 @@
     
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    if ([self.navigationController.viewControllers indexOfObject:self] == NSNotFound) {
+        // 'Back' button was pressed.  We know this is true because self is no longer
+        // in the navigation stack.
+        if([self.delegate respondsToSelector:@selector(PFUpdateDetailViewControllerBack)]){
+            [self.delegate PFUpdateDetailViewControllerBack];
+        }
+    }
+}
+
 @end

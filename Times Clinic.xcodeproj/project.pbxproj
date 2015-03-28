@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		810039381AAEA1D20063C4A1 /* PFMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 810039361AAEA1D20063C4A1 /* PFMapViewController.m */; };
 		810039391AAEA1D20063C4A1 /* PFMapViewController_Wide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 810039371AAEA1D20063C4A1 /* PFMapViewController_Wide.xib */; };
+		810D80AC1AC69B8700F7B787 /* CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 810D80A91AC69B8700F7B787 /* CycleScrollView.m */; };
+		810D80AD1AC69B8700F7B787 /* NSTimer+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 810D80AB1AC69B8700F7B787 /* NSTimer+Addition.m */; };
+		810D80AF1AC69E5900F7B787 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 810D80AE1AC69E5900F7B787 /* FacebookSDK.framework */; };
 		8110C2651AC2885000DFE47D /* MLTableAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 8110C25C1AC2885000DFE47D /* MLTableAlert.m */; };
 		8110C26E1AC2A54E00DFE47D /* MLTableAlertBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8110C2661AC2A54E00DFE47D /* MLTableAlertBackground@2x.png */; };
 		8110C26F1AC2A54E00DFE47D /* MLTableAlertBackground@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8110C2671AC2A54E00DFE47D /* MLTableAlertBackground@3x.png */; };
@@ -43,6 +46,8 @@
 		8138A2A11ABA81EC005BB73F /* PFFolderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8138A29F1ABA81EC005BB73F /* PFFolderCell.xib */; };
 		8138A2A81ABAA30E005BB73F /* ScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8138A2A71ABAA30E005BB73F /* ScrollView.m */; };
 		8138A2AC1ABAA349005BB73F /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8138A2AB1ABAA349005BB73F /* AsyncImageView.m */; };
+		81597F2C1AC503FC00203B4A /* PFMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81597F2A1AC503FB00203B4A /* PFMessageViewController.m */; };
+		81597F2D1AC503FC00203B4A /* PFMessageViewController_Wide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81597F2B1AC503FB00203B4A /* PFMessageViewController_Wide.xib */; };
 		817702611AB91C520085D209 /* PFServiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8177025F1AB91C520085D209 /* PFServiceCell.m */; };
 		817702621AB91C520085D209 /* PFServiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 817702601AB91C520085D209 /* PFServiceCell.xib */; };
 		817702671AB91C6D0085D209 /* PFServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 817702651AB91C6D0085D209 /* PFServiceViewController.m */; };
@@ -122,7 +127,6 @@
 		81A71D421AB8204A00620FD3 /* ic_tab_service_on@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81A71D321AB8204A00620FD3 /* ic_tab_service_on@3x.png */; };
 		81A71D431AB8204A00620FD3 /* ic_tab_update_off@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81A71D331AB8204A00620FD3 /* ic_tab_update_off@3x.png */; };
 		81A71D441AB8204A00620FD3 /* ic_tab_update_on@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81A71D341AB8204A00620FD3 /* ic_tab_update_on@3x.png */; };
-		81AF26D71AC3A95900321F15 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81AF26D61AC3A95900321F15 /* FacebookSDK.framework */; };
 		81AF26DA1AC3C23900321F15 /* bt_ok@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81AF26D81AC3C23800321F15 /* bt_ok@2x.png */; };
 		81AF26DB1AC3C23900321F15 /* bt_ok@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81AF26D91AC3C23900321F15 /* bt_ok@3x.png */; };
 		81B3DF4F1AB2D567002B31B7 /* pin_map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81B3DF4D1AB2D567002B31B7 /* pin_map@2x.png */; };
@@ -278,6 +282,11 @@
 		810039351AAEA1D20063C4A1 /* PFMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMapViewController.h; sourceTree = "<group>"; };
 		810039361AAEA1D20063C4A1 /* PFMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMapViewController.m; sourceTree = "<group>"; };
 		810039371AAEA1D20063C4A1 /* PFMapViewController_Wide.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFMapViewController_Wide.xib; sourceTree = "<group>"; };
+		810D80A81AC69B8700F7B787 /* CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CycleScrollView.h; sourceTree = "<group>"; };
+		810D80A91AC69B8700F7B787 /* CycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleScrollView.m; sourceTree = "<group>"; };
+		810D80AA1AC69B8700F7B787 /* NSTimer+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Addition.h"; sourceTree = "<group>"; };
+		810D80AB1AC69B8700F7B787 /* NSTimer+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Addition.m"; sourceTree = "<group>"; };
+		810D80AE1AC69E5900F7B787 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "Times Clinic/Library/FacebookSDK.framework"; sourceTree = "<group>"; };
 		8110C25B1AC2885000DFE47D /* MLTableAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTableAlert.h; sourceTree = "<group>"; };
 		8110C25C1AC2885000DFE47D /* MLTableAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTableAlert.m; sourceTree = "<group>"; };
 		8110C2661AC2A54E00DFE47D /* MLTableAlertBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MLTableAlertBackground@2x.png"; sourceTree = "<group>"; };
@@ -321,6 +330,9 @@
 		8138A2A71ABAA30E005BB73F /* ScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollView.m; sourceTree = "<group>"; };
 		8138A2AA1ABAA348005BB73F /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		8138A2AB1ABAA349005BB73F /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
+		81597F291AC503FB00203B4A /* PFMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMessageViewController.h; sourceTree = "<group>"; };
+		81597F2A1AC503FB00203B4A /* PFMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMessageViewController.m; sourceTree = "<group>"; };
+		81597F2B1AC503FB00203B4A /* PFMessageViewController_Wide.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFMessageViewController_Wide.xib; sourceTree = "<group>"; };
 		8177025E1AB91C520085D209 /* PFServiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFServiceCell.h; sourceTree = "<group>"; };
 		8177025F1AB91C520085D209 /* PFServiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFServiceCell.m; sourceTree = "<group>"; };
 		817702601AB91C520085D209 /* PFServiceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PFServiceCell.xib; sourceTree = "<group>"; };
@@ -422,7 +434,6 @@
 		81A71D321AB8204A00620FD3 /* ic_tab_service_on@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_tab_service_on@3x.png"; sourceTree = "<group>"; };
 		81A71D331AB8204A00620FD3 /* ic_tab_update_off@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_tab_update_off@3x.png"; sourceTree = "<group>"; };
 		81A71D341AB8204A00620FD3 /* ic_tab_update_on@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_tab_update_on@3x.png"; sourceTree = "<group>"; };
-		81AF26D61AC3A95900321F15 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "Times Clinic/Library/FacebookSDK.framework"; sourceTree = "<group>"; };
 		81AF26D81AC3C23800321F15 /* bt_ok@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bt_ok@2x.png"; sourceTree = "<group>"; };
 		81AF26D91AC3C23900321F15 /* bt_ok@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bt_ok@3x.png"; sourceTree = "<group>"; };
 		81B3DF4D1AB2D567002B31B7 /* pin_map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin_map@2x.png"; sourceTree = "<group>"; };
@@ -645,7 +656,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81D4A3511AAFEA990046C1FB /* CoreGraphics.framework in Frameworks */,
-				81AF26D71AC3A95900321F15 /* FacebookSDK.framework in Frameworks */,
+				810D80AF1AC69E5900F7B787 /* FacebookSDK.framework in Frameworks */,
 				81B3DF791AB2DB52002B31B7 /* FacebookSDK.framework in Frameworks */,
 				81D4A34F1AAFEA910046C1FB /* UIKit.framework in Frameworks */,
 				81D8842A1AAED9F500316CF0 /* MapKit.framework in Frameworks */,
@@ -662,6 +673,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		810D80A71AC69B8700F7B787 /* PageAutoSlide */ = {
+			isa = PBXGroup;
+			children = (
+				810D80A81AC69B8700F7B787 /* CycleScrollView.h */,
+				810D80A91AC69B8700F7B787 /* CycleScrollView.m */,
+				810D80AA1AC69B8700F7B787 /* NSTimer+Addition.h */,
+				810D80AB1AC69B8700F7B787 /* NSTimer+Addition.m */,
+			);
+			path = PageAutoSlide;
+			sourceTree = "<group>";
+		};
 		8110C2511AC2885000DFE47D /* MLTableAlert */ = {
 			isa = PBXGroup;
 			children = (
@@ -784,6 +806,16 @@
 				8138A2AB1ABAA349005BB73F /* AsyncImageView.m */,
 			);
 			path = AsyncImageView;
+			sourceTree = "<group>";
+		};
+		81597F281AC503FB00203B4A /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				81597F291AC503FB00203B4A /* PFMessageViewController.h */,
+				81597F2A1AC503FB00203B4A /* PFMessageViewController.m */,
+				81597F2B1AC503FB00203B4A /* PFMessageViewController_Wide.xib */,
+			);
+			path = Message;
 			sourceTree = "<group>";
 		};
 		8177025D1AB91B470085D209 /* Cell */ = {
@@ -965,6 +997,7 @@
 				8110C2511AC2885000DFE47D /* MLTableAlert */,
 				81BB14B21AB3F70100225D66 /* MWPhotoBrowser */,
 				81D4A3B11AB038020046C1FB /* Other */,
+				810D80A71AC69B8700F7B787 /* PageAutoSlide */,
 				8138A2A51ABAA30E005BB73F /* ScrollView */,
 				81A71D1F1AB7E50E00620FD3 /* UILabel+UILabelDynamicHeight */,
 			);
@@ -1117,6 +1150,7 @@
 				81BB14AC1AB3F20B00225D66 /* EditProfile */,
 				81802BB31AB69D15009C53EA /* EditDetailProfile */,
 				81F8556A1AC144300058B7E5 /* Notification */,
+				81597F281AC503FB00203B4A /* Message */,
 			);
 			path = Update;
 			sourceTree = "<group>";
@@ -1374,7 +1408,7 @@
 		81D4A3521AAFEADD0046C1FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				81AF26D61AC3A95900321F15 /* FacebookSDK.framework */,
+				810D80AE1AC69E5900F7B787 /* FacebookSDK.framework */,
 				81D4A3501AAFEA990046C1FB /* CoreGraphics.framework */,
 				81D884291AAED9F500316CF0 /* MapKit.framework */,
 				81D4A34E1AAFEA910046C1FB /* UIKit.framework */,
@@ -1680,6 +1714,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81597F2D1AC503FC00203B4A /* PFMessageViewController_Wide.xib in Resources */,
 				81D4A3691AB00FFA0046C1FB /* PFEditCardViewController_Wide.xib in Resources */,
 				817702681AB91C6D0085D209 /* PFServiceViewController_Wide.xib in Resources */,
 				81B3DF761AB2D9BE002B31B7 /* logo@2x.png in Resources */,
@@ -1929,6 +1964,7 @@
 				81D4A3721AB013C40046C1FB /* PFEditCardDetailViewController.m in Sources */,
 				817D6FB81AB71C460095C297 /* PFUpdateViewController.m in Sources */,
 				81BB15301AB3F70200225D66 /* SDWebImageManager.m in Sources */,
+				81597F2C1AC503FC00203B4A /* PFMessageViewController.m in Sources */,
 				81BB15341AB3F70200225D66 /* UIImage+MultiFormat.m in Sources */,
 				81881D671AAD53A1007071DE /* PFContactViewController.m in Sources */,
 				81D4A3AD1AB01F150046C1FB /* UIButton+AFNetworking.m in Sources */,
@@ -1941,6 +1977,8 @@
 				817702881AB935D30085D209 /* PFPromotionDetailViewController.m in Sources */,
 				81BB15171AB3F70200225D66 /* MWTapDetectingView.m in Sources */,
 				81D4A3A21AB01F150046C1FB /* AFHTTPRequestOperationManager.m in Sources */,
+				810D80AC1AC69B8700F7B787 /* CycleScrollView.m in Sources */,
+				810D80AD1AC69B8700F7B787 /* NSTimer+Addition.m in Sources */,
 				817D6FC21AB71CB50095C297 /* PFUpdateCell.m in Sources */,
 				81D4A3A51AB01F150046C1FB /* AFNetworkReachabilityManager.m in Sources */,
 				81BB15191AB3F70200225D66 /* DACircularProgressView.m in Sources */,
@@ -2089,6 +2127,12 @@
 					Clinic/Library,
 					"$(PROJECT_DIR)/Times",
 					Clinic/Library,
+					"$(PROJECT_DIR)/Times",
+					Clinic/Library,
+					"$(PROJECT_DIR)/Times",
+					Clinic/Library,
+					"$(PROJECT_DIR)/Times",
+					Clinic/Library,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Times Clinic/Times Clinic-Prefix.pch";
@@ -2108,6 +2152,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Phee Puthaprasert (Q8MZLL79Y4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/Times",
+					Clinic/Library,
+					"$(PROJECT_DIR)/Times",
+					Clinic/Library,
+					"$(PROJECT_DIR)/Times",
+					Clinic/Library,
 					"$(PROJECT_DIR)/Times",
 					Clinic/Library,
 					"$(PROJECT_DIR)/Times",
